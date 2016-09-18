@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CentrumHR.iml" filepath="$PROJECT_DIR$/.idea/modules/CentrumHR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app-android/app-android.iml" filepath="$PROJECT_DIR$/.idea/modules/app-android/app-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app-desktop/app-desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/app-desktop/app-desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" />
+    </modules>
+  </component>
+</project>
