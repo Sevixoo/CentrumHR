@@ -1,17 +1,11 @@
 package com.centrumhr.desktop;
 
-import com.centrumhr.desktop.di.AppComponent;
-import com.centrumhr.desktop.di.ApplicationModule;
-import com.centrumhr.desktop.di.DaggerAppComponent;
-import com.sun.org.apache.bcel.internal.util.ClassLoader;
+import com.centrumhr.application.application.account.data.AccountData;
+import com.centrumhr.desktop.di.*;
+import com.centrumhr.desktop.ui.start.SplashController;
+import com.centrumhr.desktop.core.SceneManager;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import java.net.URL;
 
 public class CentrumHRApplication extends Application {
 
@@ -26,10 +20,14 @@ public class CentrumHRApplication extends Application {
     }
 
     private AppComponent mApplicationComponent;
+    private LoggedAccountComponent mLoggedAccountComponent;
+    private SceneManager mSceneManager;
 
     @Override
     public void start(Stage stage) throws Exception {
         mInstance = this;
+
+        mSceneManager = new SceneManager(  );
 
         mApplicationComponent = DaggerAppComponent.builder()
                 .applicationModule(new ApplicationModule(this))
@@ -39,28 +37,26 @@ public class CentrumHRApplication extends Application {
     }
 
     private void displayLauncherScreen(Stage stage){
-        stage.initStyle(StageStyle.UNDECORATED);
-        Parent root = loadView("splash_scene.fxml");
-
-        Scene scene = new Scene(root, 300, 275);
-        scene.setRoot(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public Parent loadView( String resource ){
-        URL url = ClassLoader.getSystemClassLoader().getResource(resource);
-        try {
-            return FXMLLoader.load(url);
-        }catch (Exception ex){
-            ex.printStackTrace();
-            throw new RuntimeException( "view:" + resource + " not found url:" + url.getPath()  );
-        }
+        mSceneManager.displayScene( new SplashController() , stage );
     }
 
     public AppComponent getApplicationComponent(){
         return mApplicationComponent;
     }
 
+    public LoggedAccountComponent getLoggedAccountComponent(){
+        return mLoggedAccountComponent;
+    }
+
+    public void setLoggedAccount(AccountData account){
+        if (account == null) {
+            mLoggedAccountComponent = null;
+        } else {
+            mLoggedAccountComponent = mApplicationComponent
+                    .getLoggedAccountComponent(new DataBaseModule(
+                            mApplicationComponent.getDataBaseService()
+                    ), new AccountModule());
+        }
+    }
 
 }

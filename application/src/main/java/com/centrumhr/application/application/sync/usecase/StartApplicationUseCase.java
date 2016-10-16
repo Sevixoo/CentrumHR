@@ -1,7 +1,7 @@
 package com.centrumhr.application.application.sync.usecase;
 
-import com.centrumhr.application.application.common.IPostExecutionThread;
-import com.centrumhr.application.application.common.IThreadExecutor;
+import com.centrumhr.application.application.common.IExecutor;
+import com.centrumhr.application.application.common.IHandler;
 import com.centrumhr.application.application.common.UseCase;
 
 /**
@@ -9,7 +9,7 @@ import com.centrumhr.application.application.common.UseCase;
  */
 public class StartApplicationUseCase extends UseCase<Boolean> {
 
-    public StartApplicationUseCase(IThreadExecutor threadExecutor, IPostExecutionThread postExecutionThread) {
+    public StartApplicationUseCase(IExecutor threadExecutor, IHandler postExecutionThread) {
         super(threadExecutor, postExecutionThread);
     }
 

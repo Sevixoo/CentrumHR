@@ -4,8 +4,8 @@ import com.centrumhr.application.application.account.data.AccountCredentials;
 import com.centrumhr.application.application.account.usecase.CreateAccountUseCase;
 import com.centrumhr.application.application.account.usecase.DestroyAccountUseCase;
 import com.centrumhr.application.application.account.usecase.GetLoggedAccountUseCase;
-import com.centrumhr.application.application.common.IPostExecutionThread;
-import com.centrumhr.application.application.common.IThreadExecutor;
+import com.centrumhr.application.application.common.IExecutor;
+import com.centrumhr.application.application.common.IHandler;
 
 import javax.inject.Inject;
 
@@ -16,11 +16,11 @@ public class AccountUseCaseFactory {
 
     private IAccountService         mAccountService;
     private ILoginService           mLoginService;
-    private IThreadExecutor         mThreadExecutor;
-    private IPostExecutionThread    mPostExecutionThread;
+    private IExecutor               mThreadExecutor;
+    private IHandler                mPostExecutionThread;
 
     @Inject
-    public AccountUseCaseFactory(IAccountService mAccountService,ILoginService loginService, IThreadExecutor mThreadExecutor, IPostExecutionThread mPostExecutionThread) {
+    public AccountUseCaseFactory(IAccountService mAccountService,ILoginService loginService, IExecutor mThreadExecutor, IHandler mPostExecutionThread) {
         this.mAccountService = mAccountService;
         this.mThreadExecutor = mThreadExecutor;
         this.mPostExecutionThread = mPostExecutionThread;

@@ -12,16 +12,24 @@ public class AccountService implements IAccountService{
 
     @Override
     public AccountData getLoggedAccount() throws AccountServiceException {
-        return null;
+        try {
+            Thread.sleep(1000);
+        }catch (Exception ex){}
+        return new AccountData();
     }
 
     @Override
     public AccountData createAccount(AccountCredentials accountCredentials) throws AccountServiceException {
-        return null;
+        try {
+            Thread.sleep(1000);
+        }catch (Exception ex){}
+        return new AccountData();
     }
 
     @Override
     public void destroyAccount() throws AccountServiceException {
-
+        try {
+            Thread.sleep(1000);
+        }catch (Exception ex){}
     }
 }

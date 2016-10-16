@@ -1,13 +1,14 @@
 package com.centrumhr.application.presenter;
 
+import com.centrumhr.application.application.account.exception.AccountNotExists;
 import com.centrumhr.application.application.common.Message;
 import com.centrumhr.application.application.account.AccountUseCaseFactory;
 import com.centrumhr.application.application.account.data.AccountData;
 import com.centrumhr.application.application.common.UseCase;
-import com.centrumhr.application.application.common.UseCaseSubscriber;
+import com.centrumhr.application.application.common.UseCaseCallback;
 import com.centrumhr.application.application.sync.IDataBaseService;
 import com.centrumhr.application.application.sync.SyncUseCaseFactory;
-import com.centrumhr.data.IDataBaseHelper;
+import com.centrumhr.data.orm.IORMLiteDataBase;
 
 
 import javax.inject.Inject;
@@ -44,10 +45,10 @@ public class SplashPresenter {
 
     public void checkIfAccountIsLogged(){
         mView.showProgress(Message.LOADING);
-        mPendingUseCase = mAccountUseCaseFactory.createGetLoggedAccountUseCase().execute(new UseCaseSubscriber<AccountData>() {
+        mPendingUseCase = mAccountUseCaseFactory.createGetLoggedAccountUseCase().execute(new UseCaseCallback<AccountData>() {
             @Override
             public void onResult(AccountData accountData) {
-                if(mDataBaseService.dataBaseExists()){
+                if(mDataBaseService.dataBaseExists(accountData)){
                     startApplication();
                 }else{
                     createDataBase( accountData );
@@ -57,13 +58,17 @@ public class SplashPresenter {
             @Override
             public void onError(Throwable e) {
                 mView.hideProgress();
-                mView.displayError(e.getMessage());
+                if(e instanceof AccountNotExists){
+                    mView.displayLoginScreen();
+                }else {
+                    mView.displayError(e.getMessage());
+                }
             }
         });
     }
 
     public void onAccountCreated( AccountData accountData ){
-        if(mDataBaseService.dataBaseExists()){
+        if(mDataBaseService.dataBaseExists(accountData)){
             syncDataBase();
         }else{
             createDataBase( accountData );
@@ -72,9 +77,9 @@ public class SplashPresenter {
 
     private void createDataBase( AccountData accountData ){
         mView.showProgress(Message.CREATING_DATABASE);
-        mPendingUseCase = mSyncUseCaseFactory.createCreateDataBaseUseCase( accountData ).execute(new UseCaseSubscriber<IDataBaseHelper>() {
+        mPendingUseCase = mSyncUseCaseFactory.createCreateDataBaseUseCase( accountData ).execute(new UseCaseCallback<IORMLiteDataBase>() {
             @Override
-            public void onResult(IDataBaseHelper data) {
+            public void onResult(IORMLiteDataBase data) {
                 syncDataBase();
             }
 
@@ -88,7 +93,7 @@ public class SplashPresenter {
 
     private void syncDataBase(){
         mView.showProgress(Message.SYNC_DATABASE);
-        mPendingUseCase = mSyncUseCaseFactory.createSyncDataBaseUseCase().execute(new UseCaseSubscriber<Boolean>() {
+        mPendingUseCase = mSyncUseCaseFactory.createSyncDataBaseUseCase().execute(new UseCaseCallback<Boolean>() {
             @Override
             public void onResult(Boolean data) {
                 startApplication();
@@ -104,14 +109,12 @@ public class SplashPresenter {
 
     private void startApplication(){
         mView.showProgress(Message.APPLICATION_START);
-        mPendingUseCase = mSyncUseCaseFactory.createStartApplicationUseCase().execute(new UseCaseSubscriber<Boolean>() {
+        mPendingUseCase = mSyncUseCaseFactory.createStartApplicationUseCase().execute(new UseCaseCallback<Boolean>() {
             @Override
             public void onResult(Boolean data) {
                 try {
                     mView.displayMainScreen();
-                    System.out.println("OK");
                 }catch (Exception ex){
-                    System.out.println("aaaa");
                     ex.printStackTrace();
                 }
             }

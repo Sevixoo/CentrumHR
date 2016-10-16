@@ -2,20 +2,57 @@ package com.centrumhr.desktop.service;
 
 import com.centrumhr.application.application.account.data.AccountData;
 import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.data.IDataBaseHelper;
+import com.centrumhr.data.exception.DatabaseException;
+import com.centrumhr.data.orm.IORMLiteDataBase;
+import com.centrumhr.desktop.data.ORMLiteDatabase;
+
+import java.io.File;
 
 /**
  * Created by Seweryn on 18.09.2016.
  */
 public class DataBaseService implements IDataBaseService {
 
+    private static String TAG = DataBaseService.class.getName();
+
+    private final String PATH_TO_DATABASE = "./data/";
+
+    private ORMLiteDatabase ormLiteDatabase;
+
     @Override
-    public boolean dataBaseExists() {
-        return false;
+    public String getDatabaseName( AccountData accountData ){
+        return accountData.getUniqueId() + ".db";
+    }
+
+    private File getDatabaseFile( String name ){
+        return new File(PATH_TO_DATABASE + name);
     }
 
     @Override
-    public IDataBaseHelper createDataBase(AccountData accountData) {
-        return null;
+    public boolean dataBaseExists( AccountData accountData ) {
+        String name = getDatabaseName(accountData);
+        File dbFile = getDatabaseFile(name);
+        boolean dbExists = dbFile.exists() && !dbFile.isDirectory();
+        if(dbExists){
+            ormLiteDatabase = new ORMLiteDatabase(dbFile);
+            System.out.println("[DataBaseService]"+TAG+":connectDatabase:"+dbFile.getPath());
+        }
+        return dbExists;
+    }
+
+    @Override
+    public IORMLiteDataBase createDataBase(AccountData accountData) {
+        String name = getDatabaseName(accountData);
+        File dbFile = getDatabaseFile(name);
+        ormLiteDatabase = new ORMLiteDatabase(dbFile);
+        ormLiteDatabase.onCreateDataBase();
+        System.out.println("[DataBaseService]"+TAG+":createDataBase:"+dbFile.getPath());
+        return ormLiteDatabase;
+    }
+
+    @Override
+    public IORMLiteDataBase provideDataBase(){
+        if(ormLiteDatabase==null)throw new RuntimeException("ormLiteDatabase==null");
+        return ormLiteDatabase;
     }
 }

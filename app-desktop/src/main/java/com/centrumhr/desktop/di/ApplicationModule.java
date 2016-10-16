@@ -2,19 +2,19 @@ package com.centrumhr.desktop.di;
 
 import com.centrumhr.application.application.account.IAccountService;
 import com.centrumhr.application.application.account.ILoginService;
-import com.centrumhr.application.application.common.IPostExecutionThread;
-import com.centrumhr.application.application.common.IThreadExecutor;
+import com.centrumhr.application.application.common.IExecutor;
+import com.centrumhr.application.application.common.IHandler;
 import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.data.IDataBaseHelper;
-import com.centrumhr.desktop.data.DataBaseHelper;
 import com.centrumhr.desktop.service.AccountService;
 import com.centrumhr.desktop.service.DataBaseService;
 import com.centrumhr.desktop.service.LoginService;
-import com.centrumhr.desktop.threading.AsyncExecutor;
-import com.centrumhr.desktop.threading.UIThread;
+import com.centrumhr.desktop.service.threading.HandlerThread;
+import com.centrumhr.desktop.service.threading.ThreadExecutor;
 import dagger.Module;
 import dagger.Provides;
 import javafx.application.Application;
+
+import javax.inject.Singleton;
 
 /**
  * Created by Seweryn on 18.09.2016.
@@ -24,14 +24,14 @@ public class ApplicationModule{
 
     private Application mContext;
 
-    private IPostExecutionThread mPostExecutionThread;
-    private IThreadExecutor mThreadExecutor;
+    private IHandler mPostExecutionThread;
+    private IExecutor mThreadExecutor;
 
     public ApplicationModule(Application context) {
         this.mContext = context;
         System.out.println(Thread.currentThread().getName());
-        mPostExecutionThread = new UIThread();
-        mThreadExecutor = new AsyncExecutor();
+        mPostExecutionThread = HandlerThread.getInstance();
+        mThreadExecutor = ThreadExecutor.getInstance();
     }
 
     @Provides
@@ -40,7 +40,7 @@ public class ApplicationModule{
     }
 
     @Provides
-    public IPostExecutionThread providePostExecutionThread() {
+    public IHandler providePostExecutionThread() {
         return mPostExecutionThread;
     }
 
@@ -50,17 +50,13 @@ public class ApplicationModule{
     }
 
     @Provides
-    public IThreadExecutor provideThreadExecutor() {
+    public IExecutor provideThreadExecutor() {
         return mThreadExecutor;
     }
 
-    @Provides
+    @Provides @Singleton
     public IDataBaseService provideIDataBaseService() {
         return new DataBaseService();
     }
 
-    @Provides
-    public IDataBaseHelper provideDataBaseHelper() {
-        return new DataBaseHelper();
-    }
 }

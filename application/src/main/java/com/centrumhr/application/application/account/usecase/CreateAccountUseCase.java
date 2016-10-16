@@ -4,8 +4,8 @@ import com.centrumhr.application.application.account.IAccountService;
 import com.centrumhr.application.application.account.ILoginService;
 import com.centrumhr.application.application.account.data.AccountCredentials;
 import com.centrumhr.application.application.account.data.AccountData;
-import com.centrumhr.application.application.common.IPostExecutionThread;
-import com.centrumhr.application.application.common.IThreadExecutor;
+import com.centrumhr.application.application.common.IExecutor;
+import com.centrumhr.application.application.common.IHandler;
 import com.centrumhr.application.application.common.UseCase;
 
 /**
@@ -17,7 +17,7 @@ public class CreateAccountUseCase extends UseCase<AccountData> {
     private ILoginService           mLoginService;
     private AccountCredentials      mAccountCredentials;
 
-    public CreateAccountUseCase(IThreadExecutor threadExecutor, IPostExecutionThread postExecutionThread, IAccountService mAccountService, AccountCredentials mAccountCredentials , ILoginService loginService) {
+    public CreateAccountUseCase(IExecutor threadExecutor, IHandler postExecutionThread, IAccountService mAccountService, AccountCredentials mAccountCredentials , ILoginService loginService) {
         super(threadExecutor, postExecutionThread);
         this.mAccountService = mAccountService;
         this.mAccountCredentials = mAccountCredentials;

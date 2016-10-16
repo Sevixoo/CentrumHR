@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #616161;" stylesheets="@../style/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <ProgressBar layoutX="-6.0" layoutY="326.0" prefHeight="9.0" prefWidth="606.0" progress="0.27" style="-fx-background-color: #616161; -fx-control-inner-background: #616161;" />
+      <Label layoutX="463.0" layoutY="178.0" text="[version]" textFill="#ffffffe0" />
+      <Label alignment="CENTER_RIGHT" layoutX="499.0" layoutY="344.0" prefHeight="17.0" prefWidth="87.0" text="[message]" textAlignment="RIGHT" textFill="#ffffffea" />
+      <Label layoutX="264.0" layoutY="134.0" text="CentrumHR" textFill="#fffffff3">
+         <font>
+            <Font name="Arial Bold" size="44.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="153.0" fitWidth="152.0" layoutX="84.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/ic_launcher.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
