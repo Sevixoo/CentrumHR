@@ -37,6 +37,7 @@
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="dagger-producers-2.0-beta" level="project" />
     <orderEntry type="library" exported="" name="guava-18.0" level="project" />
+    <orderEntry type="library" exported="" name="controlsfx-8.0.5" level="project" />
     <orderEntry type="library" exported="" name="sqlite-jdbc-3.8.11.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-5.0" level="project" />
     <orderEntry type="library" exported="" name="app-desktop.app-desktop" level="project" />

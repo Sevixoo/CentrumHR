@@ -5,7 +5,7 @@ import com.centrumhr.application.application.common.IHandler;
 import com.centrumhr.application.application.common.UseCase;
 import com.centrumhr.data.domain.IEmployeeRepository;
 import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 
 import java.util.UUID;
 

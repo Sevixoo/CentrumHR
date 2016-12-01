@@ -52,12 +52,12 @@ public class EmployeeCell extends TableCell<AttendanceEmployeeVM,AttendanceEmplo
         if(item!=null){
             HBox hbox = new HBox();
             hbox.setPadding(new Insets(5));
-            hbox.setMinWidth(200);
+            hbox.setMinWidth(180);
             hbox.setSpacing(10);
             ImageView imageView = new ImageView();
             imageView.setImage(new Image(ClassLoader.getSystemClassLoader().getResourceAsStream( "image/avatar.jpg") ) );
-            imageView.setFitHeight(50);
-            imageView.setFitWidth(50);
+            imageView.setFitHeight(34);
+            imageView.setFitWidth(34);
             VBox vbox = new VBox();
             vbox.setAlignment(Pos.CENTER_LEFT);
             Label nameLabel = new Label(item.name);

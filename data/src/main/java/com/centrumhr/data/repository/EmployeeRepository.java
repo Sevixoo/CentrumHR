@@ -2,7 +2,7 @@ package com.centrumhr.data.repository;
 
 import com.centrumhr.data.domain.IEmployeeRepository;
 import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 import com.centrumhr.data.orm.Repository;
 import com.centrumhr.data.orm.UnitOfWork;
 
@@ -16,33 +16,20 @@ import java.util.UUID;
 public class EmployeeRepository extends Repository<Employee> implements IEmployeeRepository {
 
     public EmployeeRepository(UnitOfWork mUnitOfWork) {
-        super(mUnitOfWork);
+        super( Employee.class , mUnitOfWork);
     }
 
     @Override
-    public void save(Employee employee) throws DatabaseException {
-        try {
-            provideDao(Employee.class).createOrUpdate(employee);
-        }catch (SQLException ex){
-            throw  new DatabaseException(ex);
-        }
-    }
+    public List<Employee> list(List<UUID> uniqueIds) throws DatabaseException {
+        try{
+            return provideDao(Employee.class)
+                    .queryBuilder()
+                    .where()
+                    .in( "uniqueId" , uniqueIds )
+                    .query();
 
-    @Override
-    public Employee load(UUID uniqueId) throws DatabaseException{
-        try {
-            return provideDao(Employee.class).queryBuilder().where().eq("uniqueId",uniqueId).queryForFirst();
         }catch (SQLException ex){
-            throw  new DatabaseException(ex);
-        }
-    }
-
-    @Override
-    public List<Employee> list() throws DatabaseException{
-        try {
-            return provideDao(Employee.class).queryForAll();
-        }catch (SQLException ex){
-            throw  new DatabaseException(ex);
+            throw new DatabaseException(ex);
         }
     }
 }

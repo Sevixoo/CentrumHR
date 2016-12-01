@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Seweryn on 15.10.2016.
@@ -17,9 +18,11 @@ public class AttendanceEmployeeVM {
     public String name;
     public String hours;
     public List<ObservableValue<AttendanceDayVM>> data;
+    public UUID uniqueId;
 
     public AttendanceEmployeeVM(AttendanceEmployee attendanceEmployee) {
         name = attendanceEmployee.getName();
+        uniqueId = attendanceEmployee.getUniqueId();
         hours = "0/0/0";
         data = new ArrayList<>();
         for (AttendanceDay attendanceDay : attendanceEmployee.getAttendanceDays()) {

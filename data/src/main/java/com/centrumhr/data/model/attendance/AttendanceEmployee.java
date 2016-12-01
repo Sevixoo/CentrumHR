@@ -1,6 +1,6 @@
 package com.centrumhr.data.model.attendance;
 
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
@@ -37,10 +37,22 @@ public class AttendanceEmployee {
     @DatabaseField(foreign = true)
     private AttendancePlan attendancePlan;
 
+    public AttendanceEmployee() { }
+
     public AttendanceEmployee(Employee employee) {
         this.uniqueId = UUID.randomUUID();
         this.code = employee.getCode();
         this.name = employee.getName();
+    }
+
+    public void update( AttendanceEmployee attendanceEmployee ){
+        this.uniqueId = attendanceEmployee.getUniqueId();
+        this.code = attendanceEmployee.getCode();
+        this.name = attendanceEmployee.getName();
+    }
+
+    public void setAttendancePlan(AttendancePlan attendancePlan) {
+        this.attendancePlan = attendancePlan;
     }
 
     public Collection<AttendanceDay> getAttendanceDays() {

@@ -3,10 +3,17 @@ package com.centrumhr.application.presenter;
 import com.centrumhr.application.application.common.Message;
 import com.centrumhr.application.application.common.UseCase;
 import com.centrumhr.application.application.common.UseCaseCallback;
+import com.centrumhr.application.application.department.DepartmentUseCaseFactory;
 import com.centrumhr.application.application.employee.EmployeeUseCaseFactory;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.application.application.employee.dto.PersonalDataDTO;
+import com.centrumhr.application.application.workFunction.WorkFunctionUseCaseFactory;
+import com.centrumhr.data.model.employment.Department;
+import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.data.model.employment.WorkFunction;
+import com.centrumhr.data.model.employment.WorkTime;
 
 import javax.inject.Inject;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,15 +29,21 @@ public class AddEmployeePresenter {
         void displayAddEmployeeSuccess(Employee employee);
         void dismiss();
         void editEmployee(Employee employee);
+        void departmentLoaded( List<Department> data );
+        void workFunctionsLoaded( List<WorkFunction> data  );
     }
 
     private EmployeeUseCaseFactory  mEmployeeUseCaseFactory;
+    private DepartmentUseCaseFactory mDepartmentUseCaseFactory;
+    private WorkFunctionUseCaseFactory mWorkFunctionUseCaseFactory;
     private UseCase                 mPendingUseCase;
     private View                    mView;
 
     @Inject
-    public AddEmployeePresenter(EmployeeUseCaseFactory mEmployeeUseCaseFactory) {
+    public AddEmployeePresenter(EmployeeUseCaseFactory mEmployeeUseCaseFactory , DepartmentUseCaseFactory departmentUseCaseFactory, WorkFunctionUseCaseFactory workFunctionUseCaseFactory) {
         this.mEmployeeUseCaseFactory = mEmployeeUseCaseFactory;
+        this.mDepartmentUseCaseFactory = departmentUseCaseFactory;
+        this.mWorkFunctionUseCaseFactory = workFunctionUseCaseFactory;
     }
 
     public void setView( View view ){
@@ -40,9 +53,37 @@ public class AddEmployeePresenter {
         }
     }
 
-    public void addEmployee( Employee employee ){
+    public void loadWorkFunctions(){
+        mPendingUseCase = mWorkFunctionUseCaseFactory.createLoadWorkFunctionsUseCase().execute(new UseCaseCallback<List<WorkFunction>>() {
+            @Override
+            public void onResult(List<WorkFunction> data) {
+                mView.workFunctionsLoaded(data);
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+                mView.displayError(ex.getMessage());
+            }
+        });
+    }
+
+    public void loadDepartments(){
+        mPendingUseCase = mDepartmentUseCaseFactory.createLoadDepartmentsUseCase().execute(new UseCaseCallback<List<Department>>() {
+            @Override
+            public void onResult(List<Department> data) {
+                mView.departmentLoaded(data);
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+                mView.displayError(ex.getMessage());
+            }
+        });
+    }
+
+    public void addEmployee(PersonalDataDTO personal, WorkFunction workFunction, List<Department> departments, Date employmentDate , boolean isJudgment , WorkTime workTime){
         mView.showProgress(Message.LOADING);
-        mPendingUseCase = mEmployeeUseCaseFactory.createAddEmployeeUseCase(employee).execute(new UseCaseCallback<Employee>() {
+        mPendingUseCase = mEmployeeUseCaseFactory.createAddEmployeeUseCase(personal,workFunction,departments,employmentDate,isJudgment,workTime).execute(new UseCaseCallback<Employee>() {
             @Override
             public void onResult(Employee data) {
                 mView.hideProgress();
@@ -75,9 +116,9 @@ public class AddEmployeePresenter {
         });
     }
 
-    public void editEmployee(Employee source,Employee data){
+    public void editEmployee(PersonalDataDTO personal, WorkFunction workFunction, List<Department> departments, Date employmentDate , boolean isJudgment , WorkTime workTime, Employee employee){
         mView.showProgress(Message.LOADING);
-        mPendingUseCase = mEmployeeUseCaseFactory.createEditEmployeeUseCase(source,data).execute(new UseCaseCallback<Employee>() {
+        mPendingUseCase = mEmployeeUseCaseFactory.createEditEmployeeUseCase(personal,workFunction,departments,employmentDate,isJudgment,workTime,employee).execute(new UseCaseCallback<Employee>() {
             @Override
             public void onResult(Employee data) {
                 mView.hideProgress();

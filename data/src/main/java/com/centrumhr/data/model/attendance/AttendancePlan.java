@@ -37,9 +37,21 @@ public class AttendancePlan {
     @ForeignCollectionField(eager = true)
     private Collection<AttendanceEmployee> employees;
 
-
     public AttendancePlan() {
         uniqueId = UUID.randomUUID();
+    }
+
+    public void update( AttendancePlan attendancePlan ){
+        uniqueId = attendancePlan.uniqueId;
+        name = attendancePlan.name;
+        startDate = attendancePlan.startDate;
+        createDate = attendancePlan.createDate;
+        state = attendancePlan.state;
+    }
+
+
+    public UUID getUniqueId() {
+        return uniqueId;
     }
 
     public String getName() {

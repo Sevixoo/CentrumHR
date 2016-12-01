@@ -8,7 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import org.controlsfx.control.PopOver;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.Objects;
 
@@ -48,6 +51,29 @@ public class SceneManager {
         stage.initOwner(parent.getStage());
         controller.setStage( stage );
         show(viewRootNodeHierarchy, stage , controller.getTitle(),true);
+    }
+
+    public void displayPopOver( Window parent, Controller controller ) {
+        Parent viewRootNodeHierarchy = loadViewNodeHierarchy(controller);
+        PopOver popOver = new PopOver(viewRootNodeHierarchy);
+        controller.setPopOver(popOver);
+        popOver.setDetachable(true);
+        popOver.setDetached(true);
+        popOver.setCornerRadius(4);
+        popOver.show(parent);
+    }
+
+    public void displayPopOver( Window parent , Controller controller , Point anchor ) {
+        Parent viewRootNodeHierarchy = loadViewNodeHierarchy(controller);
+        PopOver popOver = new PopOver(viewRootNodeHierarchy);
+        controller.setPopOver(popOver);
+        popOver.setCornerRadius(4);
+        popOver.setDetachable(false);
+        popOver.setArrowSize(10);
+        popOver.setArrowIndent(10);
+        popOver.setAutoHide(true);
+        popOver.setArrowLocation(PopOver.ArrowLocation.LEFT_TOP);
+        popOver.show(parent,anchor.x , anchor.y );
     }
 
     public Parent load( Controller parent , Controller controller ) {

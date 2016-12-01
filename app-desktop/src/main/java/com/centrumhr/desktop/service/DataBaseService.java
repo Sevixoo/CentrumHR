@@ -14,6 +14,7 @@ import java.io.File;
 public class DataBaseService implements IDataBaseService {
 
     private static String TAG = DataBaseService.class.getName();
+    private static final int DB_VERSION = 4;
 
     private final String PATH_TO_DATABASE = "./data/";
 
@@ -21,7 +22,7 @@ public class DataBaseService implements IDataBaseService {
 
     @Override
     public String getDatabaseName( AccountData accountData ){
-        return accountData.getUniqueId() + ".db";
+        return accountData.getUniqueId()+ "_" + DB_VERSION + ".db";
     }
 
     private File getDatabaseFile( String name ){

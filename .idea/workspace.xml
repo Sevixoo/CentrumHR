@@ -5,130 +5,123 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9e3a34a-9f67-411a-b24c-0001f42913da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/icon/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/image/avatar.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/app_desktop.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/application_application.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/h2_1_0_60.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ormlite_core_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ormlite_jdbc_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_8_11_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/NullTableViewSelectionModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/SceneManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/ORMLiteDatabase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/RepositoryFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/AccountModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/threading/HandlerThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/threading/ThreadExecutor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeListController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/adapter/EmployeeTableAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/login/LoginController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MenuComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/report/ReportController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceDayVM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/AttendanceCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_add_employee_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_controller.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_list_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/login_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_menu_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/report_controller.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_controller.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_controller.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/splash_scene.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/style/JMetroDarkTheme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/style/JMetroLightTheme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/style/modena.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/IExecutor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/IHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/UseCaseCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/AddEmployeeUseCase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/EditEmployeeUseCase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/GetEmployeeUseCase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/LoadEmployeesUseCase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/AddEmployeePresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeeListPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/exception/DatabaseException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/Employee.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlanFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/PlanState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/IORMLiteDataBase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/Repository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/UnitOfWork.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeRepository.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/rxjava_1_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/ApplicationModule_ProvideDataBaseHelperFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/threading/AsyncExecutor_Factory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/ui/SplashController_MembersInjector.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/build/resources/main/login_scene.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/build/resources/main/splash_scene.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/DataBaseHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/threading/AsyncExecutor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/threading/UIThread.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/LoginController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/resources/login_scene.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app-desktop/src/main/resources/splash_scene.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/IPostExecutionThread.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/IThreadExecutor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/UseCaseSubscriber.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/IDataBaseHelper.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/SplashController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/start/SplashController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_8_0_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/EmploymentModule.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/common/SimpleAskDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/dashboard/DashboardController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/AddScheduleController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/data/EmployeeVM.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/AttendancePlanPickerController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/settings/SettingsController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/settings/department/AddDepartmentController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/settings/department/DepartmentSettingsController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/settings/department/adapter/DepartmentTableAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/settings/department/data/DepartmentVM.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_add_plan_dialog.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_attendance_plan_picker_scene.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/settings_controller.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/settings_department_add_department_scene.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/settings_department_list_scene.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/simple_ask_dialog.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/department/DepartmentUseCaseFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/department/usecase/AddDepartmentUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/department/usecase/DeleteDepartmentUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/department/usecase/LoadDepartmentsUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/dto/PersonalDataDTO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/dto/WorkFunctionDTO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/RemoveEmployeeUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/ScheduleUseCaseFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/CreateAttendancePlanUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/LoadAttendancePlanUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/SaveAttendancePlanUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/SetAttendanceDayTypeUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/workFunction/WorkFunctionUseCaseFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/workFunction/usecase/LoadWorkFunctionsUseCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeePresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/department/AddDepartmentPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/department/DepartmentPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AddAttendancePlanPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AttendancePlanPickerPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AttendancePlanPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceDayRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceEmployeeRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendancePlanRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IDepartmentRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeDepartmentRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IWorkFunctionRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/AttendancePlanImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/EmployeeImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/Hour.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/Department.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/EmployeeDepartment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/EmployeeFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/WorkFunction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/WorkTime.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/settings/SettingItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/settings/Settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceDayRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceEmployeeRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendancePlanRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/DepartmentRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeDepartmentRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/WorkFunctionRepository.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/database.db" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/Employee.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/Employee.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/app-android/app-android.iml" afterPath="$PROJECT_DIR$/.idea/modules/app-android/app-android.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/app-desktop/app-desktop.iml" afterPath="$PROJECT_DIR$/.idea/modules/app-desktop/app-desktop.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/application/application.iml" afterPath="$PROJECT_DIR$/.idea/modules/application/application.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/data/data.iml" afterPath="$PROJECT_DIR$/.idea/modules/data/data.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/ApplicationModule_ProvidePostExecutionThreadFactory.java" afterPath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/ApplicationModule_ProvidePostExecutionThreadFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/ApplicationModule_ProvideThreadExecutorFactory.java" afterPath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/ApplicationModule_ProvideThreadExecutorFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/DaggerAppComponent.java" afterPath="$PROJECT_DIR$/app-desktop/build/classes/main/com/centrumhr/desktop/di/DaggerAppComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/CentrumHRApplication.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/CentrumHRApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/AppComponent.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/AppComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/ApplicationModule.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/ApplicationModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/employee_add_employee_scene.fxml" afterPath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/employee_add_employee_scene.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/main_menu_scene.fxml" afterPath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/main_menu_scene.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/schedule_planner_menu_component.fxml" afterPath="$PROJECT_DIR$/app-desktop/build/resources/main/layout/schedule_planner_menu_component.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/SceneManager.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/SceneManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/ORMLiteDatabase.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/ORMLiteDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/RepositoryFactory.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/RepositoryFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/DataBaseModule.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/DataBaseModule.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/LoggedAccountComponent.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/LoggedAccountComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/AccountService.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/AccountService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/DataBaseService.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/DataBaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/LoginService.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/LoginService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/build.gradle" afterPath="$PROJECT_DIR$/application/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/AccountUseCaseFactory.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/AccountUseCaseFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/data/AccountData.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/data/AccountData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/CreateAccountUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/CreateAccountUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/DestroyAccountUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/DestroyAccountUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/GetLoggedAccountUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/account/usecase/GetLoggedAccountUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/UseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/common/UseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/IDataBaseService.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/IDataBaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/SyncUseCaseFactory.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/SyncUseCaseFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/CreateDataBaseUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/CreateDataBaseUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/StartApplicationUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/StartApplicationUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/SyncDataBaseUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/sync/usecase/SyncDataBaseUseCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/SplashPresenter.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/SplashPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeListController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeListController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/adapter/EmployeeTableAdapter.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/adapter/EmployeeTableAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MenuComponent.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MenuComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceDayVM.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceDayVM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/AttendanceCell.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/AttendanceCell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCell.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java" afterPath="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_add_employee_scene.fxml" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_add_employee_scene.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_menu_scene.fxml" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_menu_scene.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml" afterPath="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/AddEmployeeUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/AddEmployeeUseCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/EditEmployeeUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/EditEmployeeUseCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/GetEmployeeUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/GetEmployeeUseCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/LoadEmployeesUseCase.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/LoadEmployeesUseCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/AddEmployeePresenter.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/AddEmployeePresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeeListPresenter.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeeListPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/build.gradle" afterPath="$PROJECT_DIR$/data/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/exception/DatabaseException.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/exception/DatabaseException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlanFactory.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlanFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceType.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/Repository.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/Repository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeRepository.java" afterPath="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/app_desktop/app_desktop.jnlp" afterPath="$PROJECT_DIR$/out/artifacts/app_desktop/app_desktop.jnlp" />
     </list>
     <ignored path="CentrumHR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -143,6 +136,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/CentrumHR$CentrumHRApplication.coverage" NAME="CentrumHRApplication Coverage Results" MODIFIED="1476745042862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -165,11 +161,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScheduleController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java">
+      <file leaf-file-name="AttendancePlanPickerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/AttendancePlanPickerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="-111">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchedulePlannerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+              <folding>
+                <element signature="e#1803#1804#0" expanded="true" />
+                <element signature="e#1845#1846#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2684#2685#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlannerTableAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,10 +202,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Interface" />
-        <option value="package-info" />
         <option value="Enum" />
+        <option value="package-info" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -2078,7 +2099,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="10325655034251" />
+        <entry key="$PROJECT_DIR$" value="10326987872270" />
         <entry key="$PROJECT_DIR$/centrumhr" value="5896730964600" />
       </map>
     </option>
@@ -3076,57 +3097,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_list_scene.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/MenuComponent.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/MainController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/common/SceneManager.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/common/Controller.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_controller.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/employee_add_employee_scene.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeListController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/adapter/EmployeeTableAdapter.java" />
-        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/AddEmployeeUseCase.java" />
-        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/EditEmployeeUseCase.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java" />
-        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/GetEmployeeUseCase.java" />
-        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/service/DataBaseService.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/WorkFunction.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/Department.java" />
         <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/AddEmployeePresenter.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/employment/EmployeeFactory.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/EditEmployeeUseCase.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/EmployeeImporter.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_add_plan_dialog.fxml" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/exception/DatabaseException.java" />
         <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/EmploymentModule.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AddAttendancePlanPresenter.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/AddScheduleController.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/data/EmployeeVM.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/Repository.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/usecase/RemoveEmployeeUseCase.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/simple_ask_dialog.fxml" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeePresenter.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/common/SimpleAskDialog.java" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/login/LoginController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/start/SplashController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/SceneManager.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleEditorController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/ScheduleEditorController.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/AddScheduleController.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/LoggedAccountComponent.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendancePlanRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendancePlanRepository.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/LoadAttendancePlanUseCase.java" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_menu_scene.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/report_controller.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/report/ReportController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MenuComponent.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/Employee.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/PlanState.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceType.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlanFactory.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/PlanVM.java" />
-        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceDayVM.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/NullTableViewSelectionModel.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/EmployeeCellFactory.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCellFactory.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/AttendanceCell.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceEmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceDayRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/IAttendanceEmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/IAttendanceDayRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceDayRepository.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceEmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/RepositoryFactory.java" />
+        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/DataBaseModule.java" />
         <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/AttendancePlanImporter.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/SaveAttendancePlanUseCase.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/ScheduleUseCaseFactory.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/CreateAttendancePlanUseCase.java" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AttendancePlanPresenter.java" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCell.java" />
+        <option value="$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java" />
         <option value="$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_controller.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_controller.fxml" />
-        <option value="$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_scene.fxml" />
       </list>
     </option>
   </component>
@@ -3168,6 +3189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -3197,7 +3220,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app-desktop" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3211,47 +3234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app-desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app-desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app-desktop" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -3266,8 +3249,36 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
+              <option name="myItemId" value="CentrumHR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CentrumHR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-desktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CentrumHR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CentrumHR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-desktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3290,90 +3301,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CentrumHR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app-desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schedule" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="device.picker.selection" value="03a711ea251cbdc5" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9/cmd/git.exe" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.33103448" />
+    <property name="SearchEverywhereHistoryKey" value="Sh&#9;PSI&#9;JAVA://com.centrumhr.desktop.ui.start.SplashController&#10;EmployeeCon&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java&#10;AddS&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/AddScheduleController.java&#10;Empl&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java&#10;Im&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/data/src/main/java/com/centrumhr/data/importer/EmployeeImporter.java&#10;DB_V&#9;PSI&#9;JAVA://com.centrumhr.desktop.service.DataBaseService#DB_VERSION&#10;DataMo&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/di/DataBaseModule.java&#10;AddEmployee&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java&#10;DatabaseSer&#9;FILE&#9;file://C:/Users/Seweryn/IdeaProjects/CentrumHR/app-desktop/src/main/java/com/centrumhr/desktop/service/DataBaseService.java" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\data\src\main\java\com\centrumhr\data\repository" />
+      <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources\layout" />
+      <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.centrumhr.data.repository" />
+      <recent name="com.centrumhr.application.presenter" />
+      <recent name="com.centrumhr.desktop.ui.schedule.creator.data" />
+      <recent name="com.centrumhr.data.domain" />
+      <recent name="com.centrumhr.application.application.department.usecase" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources\image" />
       <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources\layout" />
       <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources" />
       <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources\icon" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.centrumhr.desktop.ui.schedule.planner.adapter" />
-      <recent name="com.centrumhr.desktop.ui.schedule" />
-      <recent name="com.centrumhr.application.account.usecase" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR\app-desktop\src\main\resources\layout" />
-      <recent name="C:\Users\Seweryn\IdeaProjects\CentrumHR" />
     </key>
   </component>
   <component name="RunManager" selected="Application.CentrumHRApplication">
@@ -3721,6 +3684,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b9e3a34a-9f67-411a-b24c-0001f42913da" name="Default" comment="" />
@@ -3741,32 +3707,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12391304" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11304348" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2673913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10217391" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10217391" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3788,471 +3754,494 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="22" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="event" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/login/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/employee/EmployeeUseCaseFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="89">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app-desktop/build/libs/app-desktop.jar!/layout/main_scene.fxml">
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/simple_ask_dialog.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_menu_scene.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/report_controller.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/report/ReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/CentrumHRApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/PlanState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/data/EmployeeVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/HeaderVM.java" />
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/CellVM.java" />
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/PlanVM.java" />
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/adapter/EmployeeTableAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="87" column="5" selection-start-line="30" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/TableCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app-desktop/build/libs/app-desktop.jar!/layout/schedule_planner_controller.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/Labeled.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="421" column="22" selection-start-line="421" selection-start-column="22" selection-end-line="421" selection-end-column="22" />
-          <folding>
-            <element signature="e#15047#15048#0" expanded="false" />
-            <element signature="e#15096#15097#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="68" column="58" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1499#1500#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceDayVM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/NullTableViewSelectionModel.java">
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeeListPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1738">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#435#436#0" expanded="false" />
-            <element signature="e#467#468#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/SelectionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4238">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/SingleSelectionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/TableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1828" column="56" selection-start-line="1828" selection-start-column="33" selection-end-line="1828" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/SelectionMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="543" column="6" selection-start-line="543" selection-start-column="6" selection-end-line="543" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/control/TableColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="704" column="17" selection-start-line="704" selection-start-column="17" selection-end-line="704" selection-end-column="17" />
-          <folding>
-            <element signature="e#28491#28492#0" expanded="false" />
-            <element signature="e#28527#28528#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1398#1399#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1487#1488#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1643#1644#0" expanded="true" />
-            <element signature="e#1680#1681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/SceneManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="98" column="78" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/image/ImageView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
-          <folding>
-            <element signature="e#5238#5239#0" expanded="false" />
-            <element signature="e#5280#5281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/scene/image/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="724" column="57" selection-start-line="724" selection-start-column="57" selection-end-line="724" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/AttendanceCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
+        <state relative-caret-position="140">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeListController.java">
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/CentrumHRApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+          <folding>
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/EmployeePresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/common/SimpleAskDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/WorkFunctionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/EmployeeCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1180">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/main_scene.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/main/MenuComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_controller.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app-desktop/build/libs/app-desktop.jar!/layout/schedule_controller.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_controller.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="443">
+          <caret line="98" column="5" selection-start-line="95" selection-start-column="0" selection-end-line="98" selection-end-column="5" />
           <folding>
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
+            <element signature="e#2889#2890#0" expanded="false" />
+            <element signature="e#2980#2981#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/start/SplashController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+        <state relative-caret-position="80">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/AddEmployeePresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AttendancePlanPickerPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AddAttendancePlanPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/LoggedAccountComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/EmployeeDepartmentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/SetAttendanceDayTypeUseCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeDepartmentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="55" selection-start-line="15" selection-start-column="4" selection-end-line="21" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IEmployeeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/LoadAttendancePlanUseCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3723#3724#0" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/IORMLiteDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/orm/UnitOfWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/ORMLiteDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/AddScheduleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <folding>
+            <element signature="e#3621#3622#0" expanded="false" />
+            <element signature="e#3648#3649#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/ScheduleController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#567#568#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
+            <element signature="e#748#749#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_controller.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/resources/layout/schedule_planner_menu_component.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <marker date="1479045344413" expanded="true" signature="976:1075" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/PlannerMenuComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#731#732#0" expanded="false" />
+            <element signature="e#767#768#0" expanded="false" />
+            <element signature="e#810#811#0" expanded="false" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#883#884#0" expanded="false" />
+            <element signature="e#929#930#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendancePlanRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="55" selection-start-line="13" selection-start-column="0" selection-end-line="20" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceDayRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/domain/IAttendanceEmployeeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="55" selection-start-line="12" selection-start-column="1" selection-end-line="19" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/IAttendancePlanRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/IAttendanceEmployeeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/IAttendanceDayRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceDayRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendanceEmployeeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="1" selection-start-line="18" selection-start-column="5" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/repository/AttendancePlanRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/RepositoryFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="e#1193#1194#0" expanded="false" />
+            <element signature="e#1255#1256#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceDay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/EmployeeImporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/di/DataBaseModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/CreateAttendancePlanUseCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/ScheduleUseCaseFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/application/shedule/usecase/SaveAttendancePlanUseCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/importer/AttendancePlanImporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-838">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/data/AttendanceEmployeeVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/centrumhr/application/presenter/shedule/AttendancePlanPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendanceEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/adapter/PlannerTableAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/centrumhr/data/model/attendance/AttendancePlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding>
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1747#1748#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/SchedulePlannerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+          <folding>
+            <element signature="e#1803#1804#0" expanded="true" />
+            <element signature="e#1845#1846#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2684#2685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/planner/AttendancePlanPickerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -4264,8 +4253,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>app-desktop</last-edited>
@@ -4321,6 +4310,7 @@
             <option name="proportions">
               <list>
                 <option value="0.33103448" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -4,6 +4,7 @@ import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.employee.EmployeeController;
 import com.centrumhr.desktop.ui.report.ReportController;
 import com.centrumhr.desktop.ui.schedule.ScheduleController;
+import com.centrumhr.desktop.ui.settings.SettingsController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,11 +28,13 @@ public class MenuComponent {
     @FXML Button menuButtonReport;
     @FXML Button menuButtonEmployee;
     @FXML Button menuButtonSchedule;
+    @FXML Button menuButtonSettings;
 
     @FXML void initialize(){
         menuButtonEmployee.setOnAction( event -> listener.displayComponent( new EmployeeController()));
         menuButtonSchedule.setOnAction(event -> listener.displayComponent( new ScheduleController() ));
         menuButtonReport.setOnAction(event -> listener.displayComponent(new ReportController()));
+        menuButtonSettings.setOnAction(event -> listener.displayComponent(new SettingsController()));
     }
 
 

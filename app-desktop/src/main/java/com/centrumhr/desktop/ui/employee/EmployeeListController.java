@@ -2,7 +2,7 @@ package com.centrumhr.desktop.ui.employee;
 
 import com.centrumhr.application.application.common.Message;
 import com.centrumhr.application.presenter.EmployeeListPresenter;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.employee.adapter.EmployeeTableAdapter;

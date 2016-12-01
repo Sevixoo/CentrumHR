@@ -27,6 +27,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="controlsfx-8.0.5" level="project" />
     <orderEntry type="library" exported="" name="sqlite-jdbc-3.8.11.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-5.0" level="project" />
     <orderEntry type="library" exported="" name="data.data" level="project" />

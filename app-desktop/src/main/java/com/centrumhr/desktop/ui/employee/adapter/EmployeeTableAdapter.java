@@ -1,6 +1,6 @@
 package com.centrumhr.desktop.ui.employee.adapter;
 
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 import com.centrumhr.desktop.ui.employee.data.EmployeeVM;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -4,7 +4,7 @@ import com.centrumhr.application.application.common.Message;
 import com.centrumhr.application.application.common.UseCase;
 import com.centrumhr.application.application.common.UseCaseCallback;
 import com.centrumhr.application.application.employee.EmployeeUseCaseFactory;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 
 import javax.inject.Inject;
 import java.util.List;

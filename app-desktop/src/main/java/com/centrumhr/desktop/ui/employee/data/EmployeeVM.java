@@ -1,6 +1,6 @@
 package com.centrumhr.desktop.ui.employee.data;
 
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.util.UUID;
@@ -32,4 +32,8 @@ public class EmployeeVM {
         return code.get();
     }
 
+    @Override
+    public String toString() {
+        return getCode() + " " + getName();
+    }
 }

@@ -3,17 +3,22 @@ package com.centrumhr.desktop.ui.schedule.planner.adapter;
 import com.centrumhr.data.model.attendance.AttendanceDay;
 import com.centrumhr.data.model.attendance.AttendanceEmployee;
 import com.centrumhr.desktop.core.NullTableViewSelectionModel;
+import com.centrumhr.desktop.ui.employee.adapter.EmployeeTableAdapter;
 import com.centrumhr.desktop.ui.schedule.data.AttendanceDayVM;
 import com.centrumhr.desktop.ui.schedule.data.AttendanceEmployeeVM;
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
@@ -27,10 +32,17 @@ import java.util.List;
  */
 public class PlannerTableAdapter {
 
+    public interface Callback{
+        void onAttendanceDayClick( AttendanceDayVM dayVM , TableCell tableCell );
+        void onEmployeeClick( AttendanceEmployeeVM employeeVM );
+    }
+
     public enum VIEW_TYPE{
         WEEK
     }
 
+    private Callback mListener;
+    private TableCell mSelectedTableCell;
     private TableView<AttendanceEmployeeVM> mTableView;
     private ObservableList<AttendanceEmployeeVM> mData;
 
@@ -69,18 +81,51 @@ public class PlannerTableAdapter {
         tableColumns[0].setCellFactory( EmployeeCell.FACTORY );
         tableColumns[0].setCellValueFactory( EmployeeCell.getValueFactory(0) );
 
-        for (int i = 1 ; i < 8 ; i++){
-            tableColumns[i] = new TableColumn("Day " + (i));
-            tableColumns[i].setSortable(false);
-            tableColumns[i].setResizable(false);
-            tableColumns[i].setEditable(false);
-            tableColumns[i].setCellFactory( AttendanceCell.FACTORY );
-            tableColumns[i].setCellValueFactory( AttendanceCell.getValueFactory(i) );
+        for (int i = 0 ; i < 7 ; i++){
+            int col = i + 1;
+            tableColumns[col] = new TableColumn("Day " + (i));
+            tableColumns[col].setSortable(false);
+            tableColumns[col].setResizable(false);
+            tableColumns[col].setEditable(false);
+            tableColumns[col].setCellFactory( new AttendanceCell.AttendanceCellFactory(onClickAttendanceCell, new AttendanceCell.AttendanceCellFactory.OnSelectCell() {
+                @Override
+                public void onSelectCell(TableCell tableCell) {
+                    mSelectedTableCell = tableCell;
+                }
+            }));
+            tableColumns[col].setCellValueFactory( AttendanceCell.getValueFactory(i) );
         }
+
 
         return tableColumns;
     }
 
+    private EventHandler<? super MouseEvent> onClickAttendanceCell = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            TableCell cell = (TableCell)event.getSource();
+            int coll = mTableView.getSelectionModel().getSelectedCells().get(0).getColumn();
+            int row = mTableView.getSelectionModel().getSelectedCells().get(0).getRow();
+            AttendanceDayVM attendanceDayVM = mData.get(row).data.get(coll-1).getValue();
+            if(mListener!=null){
+                mListener.onAttendanceDayClick( attendanceDayVM , cell );
+            }
+        }
+    };
+
+    public TableCell getSelectedTableCell() {
+        return mSelectedTableCell;
+    }
+
+    public Object getSelectedItem(){
+        int coll = mTableView.getSelectionModel().getSelectedCells().get(0).getColumn();
+        int row = mTableView.getSelectionModel().getSelectedCells().get(0).getRow();
+        if(coll>0) {
+            return mData.get(row).data.get(coll - 1).getValue();
+        }else{
+            return mData.get(row);
+        }
+    }
 
     public void setData( Collection<AttendanceEmployee> attendanceEmployees ){
         List<AttendanceEmployeeVM> list = new ArrayList<>();
@@ -89,6 +134,27 @@ public class PlannerTableAdapter {
         }
         mData.clear();
         mData.addAll(list);
+    }
+
+    public void refresh( AttendanceDayVM attendanceDayVM ){
+        System.err.println("[AttendanceDayVM]"+ attendanceDayVM.attendanceDayUniqueId.toString() );
+        for (int i = 0; i < mData.size(); i++) {
+            if(mData.get(i).uniqueId.equals(attendanceDayVM.employeeUniqueId)){
+                AttendanceEmployeeVM attendanceEmployeeVM = mData.get(i);
+                for (int j = 0; j < attendanceEmployeeVM.data.size(); j++) {
+                    if( attendanceEmployeeVM.data.get(j).getValue().attendanceDayUniqueId.equals(attendanceDayVM.attendanceDayUniqueId) ){
+                        attendanceEmployeeVM.data.set(j , new ReadOnlyObjectWrapper<>(attendanceDayVM));
+                        mTableView.refresh();
+                        return;
+                    }
+                }
+            }
+        }
+        throw new RuntimeException("ex");
+    }
+
+    public void setListener( Callback listener ){
+        mListener = listener;
     }
 
     public AttendanceEmployeeVM getItem(int position){

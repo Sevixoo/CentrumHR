@@ -1,7 +1,7 @@
 package com.centrumhr.data.domain;
 
 import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +16,8 @@ public interface IEmployeeRepository{
     Employee load( UUID uniqueId )throws DatabaseException;
 
     List<Employee> list()throws DatabaseException;
+
+    List<Employee> list(List<UUID> uniqueIds)throws DatabaseException;
+
+    void delete( UUID uuid );
 }

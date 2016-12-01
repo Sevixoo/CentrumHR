@@ -1,6 +1,6 @@
 package com.centrumhr.data.model.attendance;
 
-import com.centrumhr.data.model.Employee;
+import com.centrumhr.data.model.employment.Employee;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,6 +28,7 @@ public class AttendancePlanFactory {
         int daysInMonth = getNumOfDaysInMonth(month);
         for ( int day = 1 ; day <= daysInMonth ; day++ ) {
             AttendanceDay attendanceDay = new AttendanceDay(day);
+            attendanceDay.setEmployee(attendanceEmployee);
             attendanceDays.add(attendanceDay);
         }
         attendanceEmployee.setAttendanceDays( attendanceDays );
