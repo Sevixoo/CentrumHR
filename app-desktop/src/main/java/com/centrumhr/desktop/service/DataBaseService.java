@@ -1,9 +1,8 @@
 package com.centrumhr.desktop.service;
 
-import com.centrumhr.application.application.account.data.AccountData;
-import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.orm.IORMLiteDataBase;
+import com.centrumhr.application.account.data.AccountData;
+import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.data.core.IORMLiteDataBase;
 import com.centrumhr.desktop.data.ORMLiteDatabase;
 
 import java.io.File;

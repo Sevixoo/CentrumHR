@@ -1,65 +1,64 @@
 package com.centrumhr.data.importer;
 
-import com.centrumhr.data.domain.IDepartmentRepository;
-import com.centrumhr.data.domain.IEmployeeDepartmentRepository;
-import com.centrumhr.data.domain.IEmployeeRepository;
-import com.centrumhr.data.domain.IWorkFunctionRepository;
-import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.employment.Employee;
-import com.centrumhr.data.model.employment.EmployeeDepartment;
+import com.centrumhr.data.core.DAO;
+import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.DatabaseException;
+import com.centrumhr.data.model.employment.*;
+
+import javax.inject.Inject;
 
 /**
  * Created by Seweryn on 25.10.2016.
  */
 public class EmployeeImporter {
 
-    private IDepartmentRepository mDepartmentRepository;
-    private IEmployeeRepository mEmployeeRepository;
-    private IWorkFunctionRepository mWorkFunctionRepository;
-    private IEmployeeDepartmentRepository mIEmployeeDepartmentRepository;
+    private DAO<DepartmentEntity> departmentDAO;
+    private DAO<EmployeeEntity> employeeDAO;
+    private DAO<WorkFunctionEntity> workFunctionDAO;
+    private DAO<EmployeeDepartmentEntity> employeeDepartmentDAO;
 
-    public EmployeeImporter(IDepartmentRepository mDepartmentRepository, IEmployeeRepository mEmployeeRepository, IWorkFunctionRepository mWorkFunctionRepository, IEmployeeDepartmentRepository employeeDepartmentRepository) {
-        this.mDepartmentRepository = mDepartmentRepository;
-        this.mEmployeeRepository = mEmployeeRepository;
-        this.mWorkFunctionRepository = mWorkFunctionRepository;
-        this.mIEmployeeDepartmentRepository = employeeDepartmentRepository;
+    @Inject
+    public EmployeeImporter(IORMLiteDataBase dataBase) {
+        departmentDAO = dataBase.provideDAO(DepartmentEntity.class);
+        employeeDAO= dataBase.provideDAO(EmployeeEntity.class);
+        workFunctionDAO =dataBase.provideDAO(WorkFunctionEntity.class);
+        employeeDepartmentDAO =dataBase.provideDAO(EmployeeDepartmentEntity.class);
     }
 
-    public void importData(Employee employeeDTO)throws DatabaseException{
+    public void importData(EmployeeEntity employeeEntityDTO)throws DatabaseException{
 
-        Employee employee = mEmployeeRepository.load(employeeDTO.getUniqueId());
-        if(employee==null){
-            employee = employeeDTO;
+        EmployeeEntity employeeEntity = employeeDAO.load(employeeEntityDTO.getUniqueId());
+        if(employeeEntity ==null){
+            employeeEntity = employeeEntityDTO;
         }else{
-            employee.update( employeeDTO );
+            employeeEntity.update(employeeEntityDTO);
         }
-        mEmployeeRepository.save(employee);
 
-        if( employeeDTO.getDepartments() != null ){
+        WorkFunctionEntity workFunctionEntity = workFunctionDAO.load(employeeEntity.getWorkFunctionEntity().getUniqueId());
+        employeeEntity.setWorkFunctionEntity(workFunctionEntity);
 
-            for ( EmployeeDepartment employeeDepartment : employee.getDepartments() ){
+        employeeDAO.save(employeeEntity);
+
+        if( employeeEntityDTO.getDepartments() != null ){
+
+            for ( EmployeeDepartmentEntity employeeDepartmentEntity : employeeEntity.getDepartments() ){
                 boolean remove = true;
-                for (EmployeeDepartment employeeDepartmentDTO : employeeDTO.getDepartments()){
-                    if(employeeDepartmentDTO.equals(employeeDepartment)){
+                for (EmployeeDepartmentEntity employeeDepartmentEntityDTO : employeeEntityDTO.getDepartments()){
+                    if(employeeDepartmentEntityDTO.equals(employeeDepartmentEntity)){
                         remove = false;
                         break;
                     }
                 }
                 if(remove){
-                    mIEmployeeDepartmentRepository.delete(employeeDepartment.getUniqueId());
+                    employeeDepartmentDAO.deleteItem(employeeDepartmentEntity);
                 }
             }
 
-            for (EmployeeDepartment employeeDepartmentDTO : employeeDTO.getDepartments()){
-                EmployeeDepartment employeeDepartment = mIEmployeeDepartmentRepository.load(employeeDepartmentDTO.getUniqueId());
-                if( employeeDepartment == null ){
-                    employeeDepartment = employeeDepartmentDTO;
-                }else{
-                    employeeDepartment.update(employeeDepartmentDTO);
-                }
-                employeeDepartment.setEmployee(employee);
-                employeeDepartment.setDepartment(employeeDepartmentDTO.getDepartment());
-                mIEmployeeDepartmentRepository.save(employeeDepartment);
+            for (EmployeeDepartmentEntity employeeDepartmentEntityDTO : employeeEntityDTO.getDepartments()){
+                DepartmentEntity departmentEntity = departmentDAO.load(employeeDepartmentEntityDTO.getDepartmentEntity().getUniqueId());
+                employeeDepartmentEntityDTO.setEmployeeEntity(employeeEntity);
+                employeeDepartmentEntityDTO.setDepartmentEntity(departmentEntity);
+                employeeDepartmentDAO.save(employeeDepartmentEntityDTO);
             }
         }
 

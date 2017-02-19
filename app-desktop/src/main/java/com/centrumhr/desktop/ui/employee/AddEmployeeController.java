@@ -1,17 +1,20 @@
 package com.centrumhr.desktop.ui.employee;
 
-import com.centrumhr.application.application.common.Message;
-import com.centrumhr.application.application.employee.dto.PersonalDataDTO;
-import com.centrumhr.application.presenter.AddEmployeePresenter;
-import com.centrumhr.data.model.employment.*;
+import com.centrumhr.application.employee.dto.PersonalDataDTO;
+import com.centrumhr.desktop.ui.employee.data.EmployeeVM;
+import com.centrumhr.desktop.ui.employee.data.WorkFunctionVM;
+import com.centrumhr.desktop.ui.employee.presenter.AddEmployeePresenter;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.settings.department.data.DepartmentVM;
+import com.centrumhr.dto.employment.WorkTime;
+import javafx.beans.property.BooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckListView;
 
@@ -19,10 +22,8 @@ import javax.inject.Inject;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Seweryn on 27.09.2016.
@@ -40,26 +41,31 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
     @FXML ChoiceBox<String> functionChoiceBox;
     @FXML DatePicker employmentDatePicker;
     @FXML CheckBox judgmentCheckBox;
-    @FXML CheckListView<String> departmentCheckListView;
+
+    @FXML Pane departmentsContainer;
+
+    CheckListView<String> departmentCheckListView;
 
     @FXML RadioButton rb1;
     @FXML RadioButton rb2;
     @FXML RadioButton rb3;
     @FXML RadioButton rb4;
 
-    Employee employeeToEdit;
+    EmployeeVM employeeToEdit;
     UUID employeeToEditID;
 
     @Inject
-    public AddEmployeePresenter mPresenter;
+    public AddEmployeePresenter presenter;
 
-    private List<Employee> mData = new ArrayList<>();
-    private List<Department> mDepartments = new ArrayList<>();
-    private List<WorkFunction> mWorkFunctions = new ArrayList<>();
+    private List<EmployeeVM> employees = new ArrayList<>();
+    private List<DepartmentVM> departments = new ArrayList<>();
+    private List<WorkFunctionVM> workFunctions = new ArrayList<>();
+
+    private Runnable onSuccessListener;
 
     public AddEmployeeController() {
         super("layout/employee_add_employee_scene.fxml");
-        setTitle("Add Employee Dialog");
+        setTitle("Add EmployeeEntity Dialog");
     }
 
     @Override
@@ -70,24 +76,23 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
     @Override
     public void initialize() {
         initializeInjection();
-        mPresenter.setView(this);
-        if(employeeToEditID==null){
-            buttonSubmit.setText("Dodaj");
-        }else{
-            buttonSubmit.setText("Zapisz");
-        }
+        presenter.setView(this);
+        buttonSubmit.setVisible(employeeToEditID==null);
         buttonSubmit.setOnAction( event -> submit() );
-        buttonOK.setOnAction(event -> dismiss());
+        buttonOK.setOnAction(event -> {
+            submit();
+            onSuccessListener = this::dismiss;
+        });
         setResult(RESULT_CANCEL);
         if(employeeToEditID!=null){
-            mPresenter.loadEmployee( employeeToEditID );
+            presenter.loadEmployee( employeeToEditID );
         }
 
         employmentDatePicker.setValue(null);
         judgmentCheckBox.setSelected(false);
 
-        mPresenter.loadDepartments();
-        mPresenter.loadWorkFunctions();
+        presenter.loadDepartments();
+        presenter.loadWorkFunctions();
 
         messageLabel.setText("");
 
@@ -99,48 +104,74 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
     }
 
     private boolean isFormValid(){
-        return !inputFirstName.getText().isEmpty() && !inputLastName.getText().isEmpty() && !inputCode.getText().isEmpty();
+        if(inputFirstName.getText().isEmpty()){
+            messageLabel.setText("Wpisz imi?");
+            return false;
+        }
+        if(inputLastName.getText().isEmpty()){
+            messageLabel.setText("Wpisz nazwisko");
+            return false;
+        }
+        if(inputCode.getText().isEmpty()){
+            messageLabel.setText("Wpisz kod pracownika");
+            return false;
+        }
+        if(functionChoiceBox.getSelectionModel().getSelectedItem()==null){
+            messageLabel.setText("Wybierz pe?nion? funkcje");
+            return false;
+        }
+        if(employmentDatePicker.getValue()==null){
+            messageLabel.setText("Wybierz dat? zatrudnienia");
+            return false;
+        }
+        if(getWorkTime()==null){
+            messageLabel.setText("Wybierz etat");
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public void departmentLoaded(List<Department> data) {
-        mDepartments.clear();
-        mDepartments.addAll(data);
+    public void departmentLoaded(List<DepartmentVM> data) {
+        departments.clear();
+        departments.addAll(data);
         final ObservableList<String> strings = FXCollections.observableArrayList();
-        for (Department department : mDepartments) {
+        for (DepartmentVM department  : departments) {
             strings.add(department.getName());
         }
-        departmentCheckListView.setItems(strings);
+        departmentCheckListView = new CheckListView<>(strings);
+        departmentCheckListView.prefWidthProperty().bind(departmentsContainer.widthProperty());
+        departmentCheckListView.prefHeightProperty().bind(departmentsContainer.heightProperty());
+        departmentsContainer.getChildren().add(departmentCheckListView);
         refreshForm();
     }
 
     @Override
-    public void workFunctionsLoaded(List<WorkFunction> data) {
-        mWorkFunctions.clear();
-        mWorkFunctions.addAll(data);
+    public void workFunctionsLoaded(List<WorkFunctionVM> data) {
+        workFunctions.clear();
+        workFunctions.addAll(data);
         ObservableList<String> objectsObservableList = FXCollections.observableArrayList();;
-        for (WorkFunction workFunction : mWorkFunctions) {
-            objectsObservableList.add(workFunction.getName()) ;
+        for (WorkFunctionVM workFunctionEntity : workFunctions) {
+            objectsObservableList.add(workFunctionEntity.getName()) ;
         }
         functionChoiceBox.setItems( objectsObservableList );
         refreshForm();
     }
 
     public void editEmployee(UUID employeeID){
-        setTitle("Edit Employee Dialog Box");
-
+        setTitle("Edit EmployeeEntity Dialog Box");
         employeeToEditID = employeeID;
     }
 
-    public void editEmployee(Employee employee){
+    public void editEmployee(EmployeeVM employee ){
         employeeToEdit = employee;
-        if(mPresenter!=null){
+        if(presenter!=null){
             refreshForm();
         }
     }
 
     private void refreshForm(){
-        if(employeeToEdit==null){
+        if(employeeToEdit ==null){
             clearForm();
         }else{
             inputFirstName.setText(employeeToEdit.getFirstName());
@@ -153,19 +184,25 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
                 case TIME_3div4:rb4.setSelected(true);break;
             }
             judgmentCheckBox.setSelected(employeeToEdit.isJudgment());
-            if(mWorkFunctions.size() > 0) {
-                for (int i = 0; i < mWorkFunctions.size(); i++) {
-                    if (mWorkFunctions.get(i).equals(employeeToEdit.getWorkFunction())) {
+            employmentDatePicker
+                    .setValue( employeeToEdit.getEmploymentDate()
+                    .toInstant().atZone(ZoneId.systemDefault())
+                    .toLocalDate()
+            );
+
+            if(workFunctions.size() > 0) {
+                for (int i = 0; i < workFunctions.size(); i++) {
+                    if (workFunctions.get(i).equals(employeeToEdit.getWorkFunction())) {
                         functionChoiceBox.getSelectionModel().select(i);
                     }
                 }
             }
 
-            if(mDepartments.size() > 0) {
+            if(departments.size() > 0) {
                 List<Integer> integers = new ArrayList<>();
-                for (int i = 0; i < mDepartments.size(); i++) {
-                    for (EmployeeDepartment employeeDepartment : employeeToEdit.getDepartments()) {
-                        if (employeeDepartment.getDepartment().equals(mDepartments.get(i))) {
+                for (int i = 0; i < departments.size(); i++) {
+                    for (DepartmentVM departmentVM : employeeToEdit.getDepartments()) {
+                        if (departmentVM.getUuid().equals(departments.get(i).getUuid())) {
                             integers.add(i);
                         }
                     }
@@ -181,8 +218,10 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
         inputFirstName.setText("");
         inputLastName.setText("");
         inputCode.setText("");
-        departmentCheckListView.getCheckModel().clearSelection();
-        departmentCheckListView.getSelectionModel().clearSelection();
+        if(departmentCheckListView!=null) {
+            departmentCheckListView.getCheckModel().clearSelection();
+            departmentCheckListView.getSelectionModel().clearSelection();
+        }
         functionChoiceBox.getSelectionModel().clearSelection();
         employmentDatePicker.setValue(null);
         rb1.setSelected(false);
@@ -198,31 +237,27 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
             String lastName =inputLastName.getText();
             String code =inputCode.getText();
             PersonalDataDTO personalData = new PersonalDataDTO( firstName, lastName, code );
-            WorkFunction workFunction = mWorkFunctions.get(functionChoiceBox.getSelectionModel().getSelectedIndex());
-            List<Department> departments = getSelectedDepartments();
+            WorkFunctionVM workFunction  = workFunctions.get(functionChoiceBox.getSelectionModel().getSelectedIndex());
+            List<DepartmentVM> department = getSelectedDepartments();
 
             Date employmentDate = getEmploymentDate();
             boolean isJudgment = judgmentCheckBox.isSelected();
             WorkTime workTime = getWorkTime();
 
-            if(employeeToEdit==null){
-                mPresenter.addEmployee( personalData , workFunction , departments , employmentDate , isJudgment , workTime );
+            if(employeeToEdit ==null){
+                presenter.addEmployee( personalData , workFunction, department, employmentDate , isJudgment , workTime );
             }else{
-                mPresenter.editEmployee( personalData , workFunction , departments , employmentDate , isJudgment , workTime , employeeToEdit );
+                presenter.editEmployee( employeeToEditID, personalData , workFunction, department, employmentDate , isJudgment , workTime );
             }
         }
     }
 
-    private List<Department> getSelectedDepartments(){
-        List<Department> list = new ArrayList<>();
-        for (String item : departmentCheckListView.getCheckModel().getSelectedItems() ) {
-            for (Department department : mDepartments) {
-                if(item.equals(department.getName())){
-                    list.add(department);
-                }
-            }
-        }
-        return list;
+    private List<DepartmentVM> getSelectedDepartments(){
+        return departmentCheckListView.getCheckModel().getSelectedItems().stream()
+                .map( s -> departments.stream()
+                        .filter( departmentVM -> departmentVM.getName().equals(s))
+                        .findFirst().get()
+                ).collect(Collectors.toList());
     }
 
     private Date getEmploymentDate(){
@@ -239,18 +274,8 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
         return null;
     }
 
-    public List<Employee> getResultData(){
-        return mData;
-    }
-
-    @Override
-    public void showProgress(Message message) {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
+    public List<EmployeeVM> getResultData(){
+        return employees;
     }
 
     @Override
@@ -259,15 +284,14 @@ public class AddEmployeeController extends Controller implements AddEmployeePres
     }
 
     @Override
-    public void displayError(String message) {
-        messageLabel.setText(message);
-    }
-
-    @Override
-    public void displayAddEmployeeSuccess(Employee employee) {
+    public void displayAddEmployeeSuccess(EmployeeVM employeeVM) {
         setResult(RESULT_OK);
-        mData.add(employee);
+        employees.add(employeeVM);
         clearForm();
         messageLabel.setText("Dodano nowego pracownika");
+        if(onSuccessListener!=null){
+            onSuccessListener.run();
+        }
     }
+
 }

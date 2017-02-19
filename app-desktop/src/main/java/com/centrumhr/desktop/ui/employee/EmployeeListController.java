@@ -1,8 +1,8 @@
 package com.centrumhr.desktop.ui.employee;
 
-import com.centrumhr.application.application.common.Message;
-import com.centrumhr.application.presenter.EmployeeListPresenter;
-import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.application.Message;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeeListPresenter;
+import com.centrumhr.data.model.employment.EmployeeEntity;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.employee.adapter.EmployeeTableAdapter;
@@ -38,7 +38,7 @@ public class EmployeeListController extends Controller implements  EmployeeListP
 
     @Override
     public void initialize() {
-        initializeInjection();
+        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
         mPresenter.setView(this);
         mEmployeeTableAdapter = new EmployeeTableAdapter(mEmployeeTableView);
         mEmployeeTableAdapter.setListener(this);
@@ -53,10 +53,6 @@ public class EmployeeListController extends Controller implements  EmployeeListP
         this.mListener = mListener;
     }
 
-    private void initializeInjection(){
-        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
-    }
-
     @Override
     public void onSelectItem(EmployeeVM employeeVM) {
         if(mListener!=null){
@@ -65,27 +61,12 @@ public class EmployeeListController extends Controller implements  EmployeeListP
     }
 
     @Override
-    public void showProgress(Message message) {
-
+    public void displayAddedEmployee(EmployeeVM employeeVM) {
+        mEmployeeTableAdapter.addData(employeeVM);
     }
 
     @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void displayError(String message) {
-
-    }
-
-    @Override
-    public void displayAddedEmployee(Employee employee) {
-        mEmployeeTableAdapter.addData(employee);
-    }
-
-    @Override
-    public void displayEmployeeList(List<Employee> employees) {
+    public void displayEmployeeList(List<EmployeeVM> employees) {
         mEmployeeTableAdapter.setData(employees);
     }
 }

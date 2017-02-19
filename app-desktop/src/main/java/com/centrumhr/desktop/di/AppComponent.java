@@ -1,7 +1,7 @@
 package com.centrumhr.desktop.di;
  
-import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.application.presenter.SplashPresenter;
+import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.desktop.ui.start.SplashPresenter;
 import com.centrumhr.desktop.ui.start.SplashController;
 import dagger.Component;
 

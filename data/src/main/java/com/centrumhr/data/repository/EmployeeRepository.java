@@ -1,33 +1,35 @@
 package com.centrumhr.data.repository;
 
-import com.centrumhr.data.domain.IEmployeeRepository;
-import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.employment.Employee;
-import com.centrumhr.data.orm.Repository;
-import com.centrumhr.data.orm.UnitOfWork;
+import com.centrumhr.data.core.DAO;
+import com.centrumhr.data.core.DatabaseException;
+import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.model.employment.EmployeeEntity;
+import com.centrumhr.data.model.employment.IEmployeeRepository;
 
+import javax.inject.Inject;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Seweryn on 02.10.2016.
+ * Created by Seweryn on 15.02.2017.
  */
-public class EmployeeRepository extends Repository<Employee> implements IEmployeeRepository {
+public class EmployeeRepository implements IEmployeeRepository {
 
-    public EmployeeRepository(UnitOfWork mUnitOfWork) {
-        super( Employee.class , mUnitOfWork);
+    private DAO<EmployeeEntity> employeeEntityDAO;
+
+    @Inject
+    public EmployeeRepository(IORMLiteDataBase dataBase) {
+        employeeEntityDAO = dataBase.provideDAO(EmployeeEntity.class);
     }
 
     @Override
-    public List<Employee> list(List<UUID> uniqueIds) throws DatabaseException {
+    public List<EmployeeEntity> list(List<UUID> ids) {
         try{
-            return provideDao(Employee.class)
-                    .queryBuilder()
-                    .where()
-                    .in( "uniqueId" , uniqueIds )
+           return employeeEntityDAO.queryBuilder()
+                    .orderBy("surname" , true )
+                    .where().in("uniqueId",ids)
                     .query();
-
         }catch (SQLException ex){
             throw new DatabaseException(ex);
         }

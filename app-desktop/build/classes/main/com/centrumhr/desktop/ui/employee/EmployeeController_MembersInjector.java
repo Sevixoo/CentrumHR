@@ -1,7 +1,7 @@
 package com.centrumhr.desktop.ui.employee;
 
-import com.centrumhr.application.presenter.EmployeePresenter;
 import com.centrumhr.desktop.core.Controller;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeePresenter;
 import dagger.MembersInjector;
 import javax.annotation.Generated;
 import javax.inject.Provider;

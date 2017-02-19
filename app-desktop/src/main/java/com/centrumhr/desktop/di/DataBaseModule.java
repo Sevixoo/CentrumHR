@@ -1,14 +1,16 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.data.domain.*;
-import com.centrumhr.data.exception.DatabaseException;
+import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.data.core.IORMLiteDataBase;
 import com.centrumhr.data.importer.AttendancePlanImporter;
 import com.centrumhr.data.importer.EmployeeImporter;
-import com.centrumhr.data.orm.IORMLiteDataBase;
-import com.centrumhr.data.orm.UnitOfWork;
-import com.centrumhr.desktop.data.ORMLiteDatabase;
-import com.centrumhr.desktop.data.RepositoryFactory;
+import com.centrumhr.data.model.employment.IEmployeeRepository;
+import com.centrumhr.data.repository.AttendancePlanRepository;
+import com.centrumhr.data.repository.EmployeeRepository;
+import com.centrumhr.domain.attendance.AttendancePlanFactory;
+import com.centrumhr.domain.attendance.IAttendancePlanRepository;
+import com.centrumhr.domain.attendance.ICalendarService;
+import com.centrumhr.domain.schedule.ScheduleService;
 import dagger.Module;
 import dagger.Provides;
 
@@ -18,65 +20,30 @@ import dagger.Provides;
 @Module
 public class DataBaseModule {
 
-    IDataBaseService mDataBaseService;
+    IDataBaseService dataBaseService;
 
     public DataBaseModule(IDataBaseService dataBaseService){
-        this.mDataBaseService = dataBaseService;
+        this.dataBaseService = dataBaseService;
     }
 
     @Provides
-    public UnitOfWork providesUnitOfWork(){
-        return new UnitOfWork( mDataBaseService.provideDataBase() );
+    public IORMLiteDataBase providesORMLiteDataBase(){
+        return dataBaseService.provideDataBase();
     }
 
     @Provides
-    public RepositoryFactory provideRepositoryFactory(UnitOfWork unitOfWork ){
-        return new RepositoryFactory( unitOfWork );
+    public IAttendancePlanRepository providesAttendancePlanRepository(IORMLiteDataBase dataBase, AttendancePlanFactory attendancePlanFactory){
+        return new AttendancePlanRepository(dataBase,attendancePlanFactory);
     }
 
     @Provides
-    public IEmployeeRepository provideEmployeeRepository( RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createEmployeeRepository();
+    public IEmployeeRepository providesEmployeeRepository(IORMLiteDataBase dataBase){
+        return new EmployeeRepository(dataBase);
     }
 
     @Provides
-    public IAttendancePlanRepository provideAttendancePlanRepository(RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createAttendancePlanRepository();
-    }
-
-    @Provides
-    public IAttendanceDayRepository provideAttendanceDayRepository(RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createAttendanceDayRepository();
-    }
-
-    @Provides
-    public IAttendanceEmployeeRepository provideAttendanceEmployeeRepository(RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createAttendanceEmployeeRepository();
-    }
-
-    @Provides
-    public IDepartmentRepository provideDepartmentRepository( RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createDepartmentRepository();
-    }
-
-    @Provides
-    public IWorkFunctionRepository provideWorkFunctionRepository(RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createWorkFunctionRepository();
-    }
-
-    @Provides
-    public IEmployeeDepartmentRepository provideEmployeeDepartmentRepository(RepositoryFactory repositoryFactory ){
-        return repositoryFactory.createEmployeeDepartmentRepository();
-    }
-
-    @Provides
-    public EmployeeImporter privateEmployeeImporter(IDepartmentRepository mDepartmentRepository, IEmployeeRepository mEmployeeRepository, IWorkFunctionRepository mWorkFunctionRepository , IEmployeeDepartmentRepository employeeDepartmentRepository){
-        return new EmployeeImporter( mDepartmentRepository , mEmployeeRepository , mWorkFunctionRepository , employeeDepartmentRepository);
-    }
-
-    @Provides
-    public AttendancePlanImporter provideAttendancePlanImporter(IAttendanceEmployeeRepository mAttendanceEmployeeRepository, IAttendancePlanRepository mAttendancePlanRepository, IAttendanceDayRepository mAttendanceDayRepository){
-        return new AttendancePlanImporter( mAttendanceEmployeeRepository , mAttendancePlanRepository , mAttendanceDayRepository );
+    public ScheduleService providesScheduleService( AttendancePlanFactory factory, ICalendarService calendarService){
+        return new ScheduleService(factory,calendarService);
     }
 
 }

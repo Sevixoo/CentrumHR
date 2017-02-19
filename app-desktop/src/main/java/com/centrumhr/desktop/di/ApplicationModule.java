@@ -1,20 +1,27 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.account.IAccountService;
-import com.centrumhr.application.application.account.ILoginService;
-import com.centrumhr.application.application.common.IExecutor;
-import com.centrumhr.application.application.common.IHandler;
-import com.centrumhr.application.application.sync.IDataBaseService;
+import com.centrumhr.application.account.IAccountService;
+import com.centrumhr.application.account.ILoginService;
+import com.centrumhr.application.shedule.CalendarService;
+import com.centrumhr.application.sync.IDataBaseService;
 import com.centrumhr.desktop.service.AccountService;
 import com.centrumhr.desktop.service.DataBaseService;
 import com.centrumhr.desktop.service.LoginService;
-import com.centrumhr.desktop.service.threading.HandlerThread;
-import com.centrumhr.desktop.service.threading.ThreadExecutor;
+import com.centrumhr.domain.attendance.AttendancePlanFactory;
+import com.centrumhr.domain.attendance.IAttendancePlanRepository;
+import com.centrumhr.domain.attendance.ICalendarService;
+import com.centrumhr.domain.attendance.validation.DayValidator;
+import com.centrumhr.domain.attendance.validation.EmployeeValidator;
+import com.centrumhr.domain.attendance.validation.FreeForWorkingSundayValidatorRule;
+import com.centrumhr.domain.attendance.validation.PregnantCantWorkMoreThan4HoursValidationRule;
+import com.centrumhr.domain.schedule.ScheduleService;
 import dagger.Module;
 import dagger.Provides;
 import javafx.application.Application;
 
 import javax.inject.Singleton;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Seweryn on 18.09.2016.
@@ -24,14 +31,9 @@ public class ApplicationModule{
 
     private Application mContext;
 
-    private IHandler mPostExecutionThread;
-    private IExecutor mThreadExecutor;
-
     public ApplicationModule(Application context) {
         this.mContext = context;
         System.out.println(Thread.currentThread().getName());
-        mPostExecutionThread = HandlerThread.getInstance();
-        mThreadExecutor = ThreadExecutor.getInstance();
     }
 
     @Provides
@@ -40,23 +42,30 @@ public class ApplicationModule{
     }
 
     @Provides
-    public IHandler providePostExecutionThread() {
-        return mPostExecutionThread;
-    }
-
-    @Provides
     public ILoginService provideLoginService() {
         return new LoginService();
-    }
-
-    @Provides
-    public IExecutor provideThreadExecutor() {
-        return mThreadExecutor;
     }
 
     @Provides @Singleton
     public IDataBaseService provideIDataBaseService() {
         return new DataBaseService();
+    }
+
+
+    @Provides
+    public ICalendarService providesCalendarService(){
+        return new CalendarService();
+    }
+
+    @Provides
+    public AttendancePlanFactory providesAttendancePlanFactory(){
+        List<DayValidator> dayValidators = new ArrayList<>();
+        List<EmployeeValidator> employeeValidators = new ArrayList<>();
+
+        dayValidators.add(new FreeForWorkingSundayValidatorRule("Message"));
+        dayValidators.add(new PregnantCantWorkMoreThan4HoursValidationRule("Message"));
+
+        return new AttendancePlanFactory( dayValidators , employeeValidators );
     }
 
 }

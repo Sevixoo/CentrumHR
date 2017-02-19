@@ -28,12 +28,15 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="data" exported="" />
+    <orderEntry type="module" module-name="dto" exported="" />
+    <orderEntry type="module" module-name="domain" exported="" />
     <orderEntry type="library" exported="" name="annotations-java5-15.0" level="project" />
     <orderEntry type="library" exported="" name="dagger-2.0.2" level="project" />
     <orderEntry type="library" exported="" name="dagger-compiler-2.0.2" level="project" />
+    <orderEntry type="library" exported="" name="controlsfx-8.0.5" level="project" />
     <orderEntry type="library" exported="" name="ormlite-jdbc-5.0" level="project" />
     <orderEntry type="library" exported="" name="h2-1.0.60" level="project" />
-    <orderEntry type="library" exported="" name="controlsfx-8.0.5" level="project" />
+    <orderEntry type="library" exported="" name="rxjava-1.1.6" level="project" />
     <orderEntry type="library" exported="" name="sqlite-jdbc-3.8.11.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-5.0" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />

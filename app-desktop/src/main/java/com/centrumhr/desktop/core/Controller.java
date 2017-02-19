@@ -1,17 +1,25 @@
 package com.centrumhr.desktop.core;
 
+import com.centrumhr.application.core.UI;
+import com.centrumhr.desktop.ui.common.ErrorDialog;
+import com.centrumhr.desktop.ui.common.LoadingDialog;
+import com.centrumhr.desktop.ui.common.SimpleAskDialog;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.controlsfx.control.PopOver;
 
 import java.awt.*;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * Created by Seweryn on 18.09.2016.
  */
-public abstract class Controller{
+public abstract class Controller implements UI{
 
     public static final int RESULT_CANCEL = 0;
     public static final int RESULT_OK = 1;
@@ -110,11 +118,13 @@ public abstract class Controller{
     public void displayComponent( Pane container , Controller controller ){
         container.getChildren().clear();
         try{
-            container.getChildren().add(SceneManager.getInstance().load( this , controller ));
+            Node node = SceneManager.getInstance().load( this , controller );
+            ((Pane)node).prefWidthProperty().bind(container.widthProperty());
+            ((Pane)node).prefHeightProperty().bind(container.heightProperty());
+            container.getChildren().add(node);
         }catch (Exception ex){
             ex.printStackTrace();
         }
-
     }
 
     public int getResult() {
@@ -125,4 +135,24 @@ public abstract class Controller{
         this.result = result;
     }
 
+    @Override
+    public void displayError(Throwable throwable) {
+        throwable.printStackTrace();
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        throwable.printStackTrace(pw);
+
+        ErrorDialog dialog = new ErrorDialog( "B³¹d",throwable.getMessage(),sw.toString());
+        dialog.startForResult( this );
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
 }

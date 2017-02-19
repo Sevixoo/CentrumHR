@@ -1,5 +1,6 @@
 include ':app-android', ':application', ':data'
 rootProject.name = 'CentrumHR'
 include 'app-desktop'
+include 'dto'
 include 'domain'
 

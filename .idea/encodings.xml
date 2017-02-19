@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/core/Controller.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/data/ORMLiteDatabase.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/AddEmployeeController.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/employee/EmployeeController.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app-desktop/src/main/java/com/centrumhr/desktop/ui/schedule/creator/AddScheduleController.java" charset="windows-1250" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

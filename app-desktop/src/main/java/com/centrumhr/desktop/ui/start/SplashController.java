@@ -1,7 +1,6 @@
 package com.centrumhr.desktop.ui.start;
 
-import com.centrumhr.application.application.common.Message;
-import com.centrumhr.application.presenter.SplashPresenter;
+import com.centrumhr.application.Message;
 
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
@@ -13,8 +12,7 @@ import javax.inject.Inject;
 
 public class SplashController extends Controller implements SplashPresenter.View {
 
-    @Inject
-    public SplashPresenter mPresenter;
+    @Inject SplashPresenter mPresenter;
 
     public SplashController() {
         super("layout/splash_scene.fxml");
@@ -37,15 +35,6 @@ public class SplashController extends Controller implements SplashPresenter.View
         System.out.println(message.name());
     }
 
-    @Override
-    public void hideProgress() {
-        System.out.println("hideProgress");
-    }
-
-    @Override
-    public void displayError(String message) {
-        System.out.println(message);
-    }
 
     @Override
     public void displayLoginScreen() {
@@ -59,4 +48,8 @@ public class SplashController extends Controller implements SplashPresenter.View
         finish();
     }
 
+    @Override
+    public void showProgress() {
+        showProgress(Message.LOADING);
+    }
 }

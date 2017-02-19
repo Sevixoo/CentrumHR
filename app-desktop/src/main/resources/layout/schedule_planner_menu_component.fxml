@@ -3,18 +3,39 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="80.0" maxWidth="-Infinity" minHeight="80.0" minWidth="-Infinity" prefHeight="80.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.centrumhr.desktop.ui.schedule.planner.PlannerMenuComponent">
+<HBox alignment="CENTER_LEFT" maxHeight="80.0" maxWidth="-Infinity" minHeight="80.0" minWidth="-Infinity" prefHeight="80.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.centrumhr.desktop.ui.schedule.planner.component.PlannerMenuComponent">
    <children>
-      <Button fx:id="buttonBack" minWidth="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0" text="&lt;&lt;" />
-      <TextField fx:id="textFieldName" prefHeight="25.0" prefWidth="322.0" />
+      <Button fx:id="buttonBack" minWidth="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/ic_back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonSave" minWidth="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/ic_save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="textFieldName" prefHeight="25.0" prefWidth="205.0">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin></TextField>
       <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="80.0" prefWidth="416.0">
          <HBox.margin>
             <Insets right="20.0" />
          </HBox.margin>
          <children>
-            <Button fx:id="buttonSave" mnemonicParsing="false" text="save" />
          </children>
       </HBox>
    </children>

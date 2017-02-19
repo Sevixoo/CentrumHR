@@ -1,64 +1,77 @@
 package com.centrumhr.desktop.ui.schedule.planner;
 
-import com.centrumhr.application.presenter.shedule.AttendancePlanPresenter;
-import com.centrumhr.data.model.employment.Employee;
-import com.centrumhr.data.model.attendance.*;
+import com.centrumhr.desktop.ui.schedule.data.AttendancePlanVM;
+import com.centrumhr.desktop.ui.schedule.planner.presenter.AttendancePlanPresenter;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.schedule.data.AttendanceDayVM;
 import com.centrumhr.desktop.ui.schedule.data.AttendanceEmployeeVM;
 import com.centrumhr.desktop.ui.schedule.planner.adapter.PlannerTableAdapter;
+import com.centrumhr.domain.schedule.AttendanceEmployeeSummary;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyCode;
+import com.centrumhr.desktop.ui.schedule.planner.component.PlannerMenuComponent;
 
 import javax.inject.Inject;
 import java.util.*;
-import java.util.List;
 
 /**
  * Created by Seweryn on 15.10.2016.
  */
 public class SchedulePlannerController extends Controller implements AttendancePlanPresenter.View {
 
+    public interface Callback{
+        void displayScheduleList();
+    }
+
     @FXML PlannerMenuComponent              plannerMenuController;
     @FXML TableView<AttendanceEmployeeVM>   scheduleTable;
 
-    private PlannerTableAdapter             mPlannerTableAdapter;
-    private AttendancePlan                  mAttendancePlan;
-    private AttendancePlanPickerController  mActivePopup;
+    private PlannerTableAdapter             plannerTableAdapter;
+    private AttendancePlanVM                viewModel;
+    private AttendancePlanPickerController  activePopup;
 
-    @Inject AttendancePlanPresenter         mPresenter;
+    @Inject AttendancePlanPresenter         presenter;
 
-    private UUID                            mAttendancePlanUniqueId;
+    private UUID                            attendancePlanUniqueId;
+    private Callback                        callback;
 
-    public SchedulePlannerController( UUID attendancePlanUniqueId ){
+    public SchedulePlannerController( Callback callback , UUID attendancePlanUniqueId ){
         super("layout/schedule_planner_controller.fxml");
-        mAttendancePlanUniqueId = attendancePlanUniqueId;
+        this.attendancePlanUniqueId = attendancePlanUniqueId;
+        this.callback = callback;
     }
 
     @Override
     public void initialize() {
-        initializeInjection();
-        mPresenter.setView(this);
+        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
+        presenter.setView(this);
         plannerMenuController.setListener(new PlannerMenuComponent.Callback() {
             @Override
-            public void onClickSave() {
-                savePlan();
+            public void onClickBack() {
+                callback.displayScheduleList();
             }
 
             @Override
-            public void onClickBack() {
+            public void onClickSave() {
+                presenter.saveAttendancePlan();
+            }
 
+            @Override
+            public void onTitleChanged(String name) {
+                presenter.changeAttendancePlanName(name);
             }
         });
-        mPlannerTableAdapter = new PlannerTableAdapter(scheduleTable);
-        mPlannerTableAdapter.setListener(new PlannerTableAdapter.Callback() {
+        plannerTableAdapter = new PlannerTableAdapter(scheduleTable);
+        plannerTableAdapter.setListener(new PlannerTableAdapter.Callback() {
             @Override
             public void onAttendanceDayClick(AttendanceDayVM dayVM, TableCell tableCell) {
-                displayPickerDialog( dayVM , tableCell );
+                if(!dayVM.isFreeDay){
+                    displayPickerDialog( dayVM , tableCell );
+                }
             }
 
             @Override
@@ -67,63 +80,54 @@ public class SchedulePlannerController extends Controller implements AttendanceP
             }
         });
         scheduleTable.setOnKeyPressed(event -> onPressKeyTableView(event.getCode()));
-        mPresenter.loadAttendancePlan( mAttendancePlanUniqueId );
-    }
-
-    private void initializeInjection(){
-        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
+        presenter.loadAttendancePlan( attendancePlanUniqueId );
     }
 
     private void displayPickerDialog(AttendanceDayVM attendanceDayVM, TableCell tableCell){
-        if(mActivePopup!=null){
-            mActivePopup.dismiss();
-            if(mActivePopup.getData().equals(attendanceDayVM)){
-                mActivePopup = null;
+        if(activePopup!=null){
+            activePopup.dismiss();
+            if(activePopup.getData().equals(attendanceDayVM)){
+                activePopup = null;
                 return;
             }
         }
-        mActivePopup = new AttendancePlanPickerController();
-        mActivePopup.setData( mAttendancePlan , attendanceDayVM );
-        mActivePopup.setListener(new AttendancePlanPickerController.Callback() {
-            @Override
-            public void onUpdateAttendanceDay(AttendanceDay attendanceDay) {
-                AttendanceDayVM attendanceDayVM = new AttendanceDayVM(attendanceDay);
-                mPlannerTableAdapter.refresh( attendanceDayVM );
-
-            }
+        activePopup = new AttendancePlanPickerController();
+        activePopup.setData( attendanceDayVM );
+        activePopup.setListener((attendanceType, hourFrom, hourTo) -> {
+            presenter.setAttendanceDayType( attendanceDayVM , attendanceType , hourFrom , hourTo);
         });
         Bounds boundsInScreen = tableCell.localToScreen(tableCell.getBoundsInLocal());
-        mActivePopup.displayPopOver( scheduleTable.getScene().getWindow() ,
+        activePopup.displayPopOver( scheduleTable.getScene().getWindow() ,
                 boundsInScreen.getMinX() + tableCell.getWidth() ,
                 boundsInScreen.getMinY()
         );
     }
 
+    @Override
+    public void onUpdateAttendanceDay(AttendanceDayVM attendanceDay) {
+        plannerTableAdapter.refresh( attendanceDay );
+    }
+
+    @Override
+    public void onUpdateEmployeeSummary(UUID employeeId, AttendanceEmployeeSummary employeeSummary) {
+        plannerTableAdapter.refresh( employeeId , employeeSummary );
+    }
+
     private void onPressKeyTableView(KeyCode code){
         if(code == KeyCode.ENTER){
-            Object item =  mPlannerTableAdapter.getSelectedItem(  );
+            Object item =  plannerTableAdapter.getSelectedItem(  );
             if(item instanceof AttendanceDayVM){
                 AttendanceDayVM attendanceDayVM = (AttendanceDayVM)item;
-                displayPickerDialog( attendanceDayVM , mPlannerTableAdapter.getSelectedTableCell() );
+                displayPickerDialog( attendanceDayVM , plannerTableAdapter.getSelectedTableCell() );
             }
         }
     }
 
-    private void savePlan(){
-        mAttendancePlan.setName(plannerMenuController.getName());
-        mPresenter.savePlan( mAttendancePlan );
-    }
-
     @Override
-    public void displayAttendancePlan(AttendancePlan attendancePlan) {
-        mAttendancePlan = attendancePlan;
-        plannerMenuController.displayName(mAttendancePlan.getName());
-        mPlannerTableAdapter.setData( attendancePlan.getEmployees() );
-    }
-
-    @Override
-    public void displayError(String message) {
-
+    public void displayAttendancePlan(AttendancePlanVM attendancePlanVM) {
+        viewModel = attendancePlanVM;
+        plannerMenuController.displayName(viewModel.getName());
+        plannerTableAdapter.setData( viewModel.getEmployees() );
     }
 
 }

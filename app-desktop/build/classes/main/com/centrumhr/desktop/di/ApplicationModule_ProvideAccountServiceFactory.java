@@ -1,6 +1,6 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.account.IAccountService;
+import com.centrumhr.application.account.IAccountService;
 import dagger.internal.Factory;
 import javax.annotation.Generated;
 

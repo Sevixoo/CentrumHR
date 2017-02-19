@@ -1,8 +1,6 @@
 package com.centrumhr.desktop.ui.settings.department.adapter;
 
-import com.centrumhr.data.model.employment.Department;
-import com.centrumhr.data.model.employment.Employee;
-import com.centrumhr.desktop.ui.employee.data.EmployeeVM;
+import com.centrumhr.data.model.employment.DepartmentEntity;
 import com.centrumhr.desktop.ui.settings.department.data.DepartmentVM;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -46,8 +44,8 @@ public class DepartmentTableAdapter {
         mTableView.getSelectionModel().select(-1);
     }
 
-    public void addData(Department department){
-        mData.add(new DepartmentVM(department));
+    public void addData(DepartmentVM department ){
+        mData.add(department);
     }
 
     public UUID getSelectedDepartmentID(){
@@ -56,13 +54,9 @@ public class DepartmentTableAdapter {
         return departmentVM.getUuid();
     }
 
-    public void setData(List<Department> departments){
-        List<DepartmentVM> list = new ArrayList<>();
-        for (Department department : departments) {
-            list.add( new DepartmentVM(department) );
-        }
+    public void setData(List<DepartmentVM> departments){
         mData.clear();
-        mData.addAll(list);
+        mData.addAll(departments);
     }
 
     public DepartmentVM getItem(int position){

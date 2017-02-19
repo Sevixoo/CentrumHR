@@ -23,7 +23,7 @@
       <Pane layoutX="220.0" layoutY="19.0" prefHeight="276.0" prefWidth="200.0">
          <children>
             <Label layoutX="7.0" layoutY="6.0" text="Pracownicy" />
-            <CheckListView fx:id="employeeCheckListView" layoutX="-4.0" layoutY="40.0" prefHeight="226.0" prefWidth="191.0" />
+            <Pane fx:id="employeeListContainer" layoutX="-4.0" layoutY="40.0" prefHeight="226.0" prefWidth="191.0" />
          </children>
       </Pane>
    </children>

@@ -1,6 +1,6 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.sync.IDataBaseService;
+import com.centrumhr.application.sync.IDataBaseService;
 import dagger.internal.Factory;
 import javax.annotation.Generated;
 

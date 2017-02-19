@@ -7,6 +7,10 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':application')
+    compile project(':dto')
+    compile project(':data')
     compile 'com.google.dagger:dagger:2.0.2'
     compile 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'io.reactivex:rxjavafx:1.0.0'
+    compile 'no.tornado:tornadofx-controls:1.0.4'
 }

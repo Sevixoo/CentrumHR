@@ -1,16 +1,16 @@
 package com.centrumhr.desktop.ui.settings.department;
 
-import com.centrumhr.application.presenter.department.DepartmentPresenter;
-import com.centrumhr.data.model.employment.Department;
+import com.centrumhr.desktop.ui.settings.department.presenter.DepartmentPresenter;
+import com.centrumhr.data.model.employment.DepartmentEntity;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
-import com.centrumhr.desktop.ui.employee.AddEmployeeController;
 import com.centrumhr.desktop.ui.settings.department.adapter.DepartmentTableAdapter;
 import com.centrumhr.desktop.ui.settings.department.data.DepartmentVM;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +24,7 @@ public class DepartmentSettingsController extends Controller implements  Departm
     @FXML TableView<DepartmentVM> mDepartmentTableView;
 
     private DepartmentTableAdapter mAdapter;
-    private DepartmentPresenter mPresenter;
+    @Inject DepartmentPresenter mPresenter;
 
     public DepartmentSettingsController( ) {
         super("layout/settings_department_list_scene.fxml");
@@ -32,7 +32,7 @@ public class DepartmentSettingsController extends Controller implements  Departm
 
     @Override
     public void initialize() {
-        mPresenter = CentrumHRApplication.getInstance().getLoggedAccountComponent().getDepartmentPresenter();
+        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
         mPresenter.setView(this);
         mAdapter = new DepartmentTableAdapter(mDepartmentTableView);
         mAdapter.setListener(departmentVM -> refreshButtons());
@@ -42,7 +42,7 @@ public class DepartmentSettingsController extends Controller implements  Departm
         refreshButtons();
     }
 
-    public void displayAddDepartmentDialog(){
+    private void displayAddDepartmentDialog(){
         AddDepartmentController dialog = new AddDepartmentController();
         dialog.startForResult( this );
         if(dialog.getResult() == RESULT_OK){
@@ -63,7 +63,7 @@ public class DepartmentSettingsController extends Controller implements  Departm
     }
 
     @Override
-    public void displayDepartmentList(List<Department> data) {
+    public void displayDepartmentList(List<DepartmentVM> data) {
         mAdapter.setData(data);
     }
 
@@ -73,12 +73,7 @@ public class DepartmentSettingsController extends Controller implements  Departm
         refreshButtons();
     }
 
-    @Override
-    public void displayError(String message) {
-
-    }
-
-    private void refreshListData(List<Department> departments ){
+    private void refreshListData(List<DepartmentVM> departmentEntities){
         mPresenter.loadDepartments();
     }
 

@@ -1,11 +1,12 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.employee.EmployeeUseCaseFactory;
-import com.centrumhr.application.presenter.AddEmployeePresenter;
-import com.centrumhr.application.presenter.EmployeeListPresenter;
-import com.centrumhr.application.presenter.department.AddDepartmentPresenter;
-import com.centrumhr.application.presenter.department.DepartmentPresenter;
-import com.centrumhr.application.presenter.shedule.AttendancePlanPickerPresenter;
+import com.centrumhr.desktop.ui.employee.presenter.AddEmployeePresenter;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeeListPresenter;
+import com.centrumhr.desktop.ui.schedule.list.ScheduleListController;
+import com.centrumhr.desktop.ui.settings.department.AddDepartmentController;
+import com.centrumhr.desktop.ui.settings.department.DepartmentSettingsController;
+import com.centrumhr.desktop.ui.settings.department.presenter.AddDepartmentPresenter;
+import com.centrumhr.desktop.ui.settings.department.presenter.DepartmentPresenter;
 import com.centrumhr.desktop.ui.employee.AddEmployeeController;
 import com.centrumhr.desktop.ui.employee.EmployeeController;
 import com.centrumhr.desktop.ui.employee.EmployeeListController;
@@ -24,11 +25,8 @@ public interface LoggedAccountComponent {
     void inject(AddScheduleController controller);
     void inject(EmployeeController controller);
     void inject(SchedulePlannerController controller);
+    void inject(DepartmentSettingsController controller);
+    void inject(AddDepartmentController controller);
 
-    AddEmployeePresenter getAddEmployeePresenter();
-    EmployeeListPresenter getEmployeeListPresenter();
-    EmployeeUseCaseFactory getEmployeeUseCaseFactory();
-    AttendancePlanPickerPresenter getAttendancePlanPickerPresenter();
-    DepartmentPresenter getDepartmentPresenter();
-    AddDepartmentPresenter getAddDepartmentPresenter();
+    void inject(ScheduleListController scheduleListController);
 }

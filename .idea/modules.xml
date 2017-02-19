@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dto/dto.iml" filepath="$PROJECT_DIR$/.idea/modules/dto/dto.iml" />
     </modules>
   </component>
 </project>

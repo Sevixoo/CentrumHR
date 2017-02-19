@@ -1,7 +1,7 @@
 package com.centrumhr.desktop.ui.settings.department;
 
-import com.centrumhr.application.presenter.department.AddDepartmentPresenter;
 import com.centrumhr.desktop.core.Controller;
+import com.centrumhr.desktop.ui.settings.department.presenter.AddDepartmentPresenter;
 import dagger.MembersInjector;
 import javax.annotation.Generated;
 import javax.inject.Provider;

@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" >
-   <center>
-      <TableView fx:id="mEmployeeTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1200" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <TableView fx:id="mEmployeeTableView" maxWidth="1200" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="300.0" text="C1" />
           <TableColumn prefWidth="298.0" text="C2" />
@@ -15,5 +15,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-   </center>
+   </top>
 </BorderPane>

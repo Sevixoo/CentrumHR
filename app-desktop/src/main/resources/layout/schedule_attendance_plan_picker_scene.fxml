@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
-   <stylesheets>
-      <URL value="@../style/JMetroDarkTheme.css" />
-      <URL value="@../style/JMetroLightTheme.css" />
-   </stylesheets>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="266.0" prefWidth="330.0" style="-fx-padding: 20; -fx-spacing: 20;">
+      <VBox prefHeight="206.0" prefWidth="330.0" style="-fx-padding: 10; -fx-spacing:5;">
          <children>
-            <Button fx:id="buttonAttentTypeNormal" mnemonicParsing="false" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: rgba(76, 175, 80, 0.64);" />
-            <Button fx:id="buttonAttentTypeL4" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: rgba(244, 67, 54, 0.64);" />
+            <fx:include fx:id="work1" source="attendance_type_picker_component.fxml" />
+            <fx:include fx:id="work2" source="attendance_type_picker_component.fxml" />
+            <HBox prefWidth="840.0" spacing="25.0">
+               <fx:include fx:id="vacation" maxWidth="80" source="attendance_type_picker_component.fxml" />
+               <fx:include fx:id="medical" maxWidth="80" source="attendance_type_picker_component.fxml" />
+               <fx:include fx:id="freeDay" maxWidth="80" source="attendance_type_picker_component.fxml" />
+            </HBox>
          </children>
       </VBox>
    </children>

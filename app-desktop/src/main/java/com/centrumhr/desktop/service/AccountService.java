@@ -1,9 +1,9 @@
 package com.centrumhr.desktop.service;
 
-import com.centrumhr.application.application.account.IAccountService;
-import com.centrumhr.application.application.account.data.AccountCredentials;
-import com.centrumhr.application.application.account.data.AccountData;
-import com.centrumhr.application.application.account.exception.AccountServiceException;
+import com.centrumhr.application.account.IAccountService;
+import com.centrumhr.application.account.data.AccountCredentials;
+import com.centrumhr.application.account.data.AccountData;
+import com.centrumhr.application.account.exception.AccountServiceException;
 
 /**
  * Created by Seweryn on 18.09.2016.

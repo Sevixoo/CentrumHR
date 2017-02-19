@@ -1,11 +1,8 @@
 package com.centrumhr.desktop.ui.settings.department;
 
-import com.centrumhr.application.application.common.Message;
-import com.centrumhr.application.presenter.AddEmployeePresenter;
-import com.centrumhr.application.presenter.department.AddDepartmentPresenter;
-import com.centrumhr.application.presenter.department.DepartmentPresenter;
-import com.centrumhr.data.model.employment.Department;
-import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.desktop.ui.settings.department.data.DepartmentVM;
+import com.centrumhr.desktop.ui.settings.department.presenter.AddDepartmentPresenter;
+import com.centrumhr.data.model.employment.DepartmentEntity;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import javafx.fxml.FXML;
@@ -16,7 +13,6 @@ import javafx.scene.control.TextField;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by Seweryn on 27.09.2016.
@@ -28,10 +24,9 @@ public class AddDepartmentController extends Controller implements AddDepartment
     @FXML Button buttonSubmit;
     @FXML Label messageLabel;
 
-    @Inject
-    public AddDepartmentPresenter mPresenter;
+    @Inject AddDepartmentPresenter mPresenter;
 
-    private List<Department> mData = new ArrayList<>();
+    private List<DepartmentVM> mData = new ArrayList<>();
 
     public AddDepartmentController() {
         super("layout/settings_department_add_department_scene.fxml");
@@ -39,14 +34,10 @@ public class AddDepartmentController extends Controller implements AddDepartment
 
     @Override
     public void initialize() {
-        initializeInjection();
+        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
         mPresenter.setView(this);
         buttonSubmit.setOnAction( event -> submit() );
         setResult(RESULT_CANCEL);
-    }
-
-    private void initializeInjection(){
-        mPresenter = CentrumHRApplication.getInstance().getLoggedAccountComponent().getAddDepartmentPresenter();
     }
 
     private boolean isFormValid(){
@@ -60,12 +51,12 @@ public class AddDepartmentController extends Controller implements AddDepartment
         }
     }
 
-    public List<Department> getResultData(){
+    List<DepartmentVM> getResultData(){
         return mData;
     }
 
     @Override
-    public void onAddDepartmentSuccess(Department department) {
+    public void onAddDepartmentSuccess(DepartmentVM department ) {
         mData.add(department);
         setResult(RESULT_OK);
         dismiss();

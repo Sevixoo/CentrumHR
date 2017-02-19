@@ -1,8 +1,8 @@
 package com.centrumhr.desktop.ui.employee;
 
-import com.centrumhr.application.application.common.Message;
-import com.centrumhr.application.presenter.EmployeePresenter;
-import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.application.Message;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeePresenter;
+import com.centrumhr.data.model.employment.EmployeeEntity;
 import com.centrumhr.desktop.CentrumHRApplication;
 import com.centrumhr.desktop.core.Controller;
 import com.centrumhr.desktop.ui.common.SimpleAskDialog;
@@ -33,7 +33,7 @@ public class EmployeeController extends Controller implements EmployeePresenter.
     }
 
     @FXML public void initialize(){
-        initializeInjection();
+        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
         mPresenter.setView(this);
         editEmployeeButton.setDisable(true);
         deleteEmployeeButton.setDisable(true);
@@ -41,10 +41,6 @@ public class EmployeeController extends Controller implements EmployeePresenter.
         editEmployeeButton.setOnAction( event -> displayEditEmployeeScreen() );
         deleteEmployeeButton.setOnAction(event -> displayDeleteEmployeeDialog() );
         displayEmployeeList();
-    }
-
-    private void initializeInjection(){
-        CentrumHRApplication.getInstance().getLoggedAccountComponent().inject(this);
     }
 
     private void onSelectEmployee(EmployeeVM employeeVM){
@@ -64,7 +60,7 @@ public class EmployeeController extends Controller implements EmployeePresenter.
     }
 
     public void displayDeleteEmployeeDialog(){
-        SimpleAskDialog dialog = new SimpleAskDialog("UsunÄ…Ä‡ pracownika?");
+        SimpleAskDialog dialog = new SimpleAskDialog("Usun¹æ pracownika?");
         dialog.startForResult( this );
         if(dialog.getResult() == RESULT_OK){
             mPresenter.deleteEmployee( employeeListController.getSelectedEmployeeID() );
@@ -89,27 +85,12 @@ public class EmployeeController extends Controller implements EmployeePresenter.
     }
 
     @Override
-    public void showProgress(Message message) {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void displayError(String message) {
-
-    }
-
-    @Override
     public void onUserDeleted() {
         displayEmployeeList();
     }
 
-    private void refreshListData(List<Employee> employees){
-        for( Employee employee : employees ){
+    private void refreshListData(List<EmployeeVM> employees){
+        for( EmployeeVM employee  : employees){
             employeeListController.displayAddedEmployee(employee);
         }
     }

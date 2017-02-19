@@ -1,6 +1,5 @@
 package com.centrumhr.desktop.ui.schedule.creator;
 
-import com.centrumhr.application.presenter.shedule.AddAttendancePlanPresenter;
 import com.centrumhr.desktop.core.Controller;
 import dagger.MembersInjector;
 import javax.annotation.Generated;
@@ -9,13 +8,13 @@ import javax.inject.Provider;
 @Generated("dagger.internal.codegen.ComponentProcessor")
 public final class AddScheduleController_MembersInjector implements MembersInjector<AddScheduleController> {
   private final MembersInjector<Controller> supertypeInjector;
-  private final Provider<AddAttendancePlanPresenter> mPresenterProvider;
+  private final Provider<AddSchedulePresenter> presenterProvider;
 
-  public AddScheduleController_MembersInjector(MembersInjector<Controller> supertypeInjector, Provider<AddAttendancePlanPresenter> mPresenterProvider) {  
+  public AddScheduleController_MembersInjector(MembersInjector<Controller> supertypeInjector, Provider<AddSchedulePresenter> presenterProvider) {  
     assert supertypeInjector != null;
     this.supertypeInjector = supertypeInjector;
-    assert mPresenterProvider != null;
-    this.mPresenterProvider = mPresenterProvider;
+    assert presenterProvider != null;
+    this.presenterProvider = presenterProvider;
   }
 
   @Override
@@ -24,11 +23,11 @@ public final class AddScheduleController_MembersInjector implements MembersInjec
       throw new NullPointerException("Cannot inject members into a null reference");
     }
     supertypeInjector.injectMembers(instance);
-    instance.mPresenter = mPresenterProvider.get();
+    instance.presenter = presenterProvider.get();
   }
 
-  public static MembersInjector<AddScheduleController> create(MembersInjector<Controller> supertypeInjector, Provider<AddAttendancePlanPresenter> mPresenterProvider) {  
-      return new AddScheduleController_MembersInjector(supertypeInjector, mPresenterProvider);
+  public static MembersInjector<AddScheduleController> create(MembersInjector<Controller> supertypeInjector, Provider<AddSchedulePresenter> presenterProvider) {  
+      return new AddScheduleController_MembersInjector(supertypeInjector, presenterProvider);
   }
 }
 

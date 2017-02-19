@@ -1,6 +1,6 @@
 package com.centrumhr.desktop;
 
-import com.centrumhr.application.application.account.data.AccountData;
+import com.centrumhr.application.account.data.AccountData;
 import com.centrumhr.desktop.di.*;
 import com.centrumhr.desktop.ui.start.SplashController;
 import com.centrumhr.desktop.core.SceneManager;

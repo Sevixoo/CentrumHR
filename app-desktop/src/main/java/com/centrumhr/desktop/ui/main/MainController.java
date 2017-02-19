@@ -1,7 +1,9 @@
 package com.centrumhr.desktop.ui.main;
 
 import com.centrumhr.desktop.core.Controller;
+import com.centrumhr.desktop.ui.dashboard.DashboardController;
 import javafx.fxml.FXML;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -18,6 +20,7 @@ public class MainController extends Controller implements MenuComponent.Callback
 
     public void initialize(){
         menuController.setListener( this );
+        displayComponent(new DashboardController());
     }
 
     @Override

@@ -26,20 +26,10 @@ import javax.imageio.ImageIO;
 public class EmployeeCell extends TableCell<AttendanceEmployeeVM,AttendanceEmployeeVM>{
 
     public static Callback<TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceEmployeeVM>, ObservableValue> getValueFactory( final int day ){
-         return new Callback<TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceEmployeeVM>, ObservableValue>(  ) {
-             @Override
-             public ObservableValue call(TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceEmployeeVM> param) {
-                 return new ReadOnlyObjectWrapper<>(param.getValue());
-             }
-         };
+         return param -> new ReadOnlyObjectWrapper<>(param.getValue());
     }
 
-    public static Callback<TableColumn, TableCell> FACTORY = new Callback<TableColumn, TableCell>(){
-        @Override
-        public TableCell call(TableColumn data) {
-            return new EmployeeCell( data );
-        }
-    };
+    public static Callback<TableColumn, TableCell> FACTORY = EmployeeCell::new;
 
     private TableColumn column;
 

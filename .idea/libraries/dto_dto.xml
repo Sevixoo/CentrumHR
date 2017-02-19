@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dto.dto">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dto/build/libs/dto.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

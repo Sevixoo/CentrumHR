@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * Created by Seweryn on 09.11.2016.
@@ -16,24 +17,27 @@ public class SimpleAskDialog extends Controller {
     @FXML Button buttonOK;
     @FXML Label messageLabel;
 
-    String message;
+    private String message;
 
-    public SimpleAskDialog( String msg ) {
+    public SimpleAskDialog( String message ) {
         super("layout/simple_ask_dialog.fxml");
         setResult(RESULT_CANCEL);
-        message =msg;
+        setTitle("SimpleAskDialog");
+        this.message =message;
+    }
+
+    @Override
+    public void onStageCreated(Stage stage) {
+        stage.resizableProperty().setValue(Boolean.FALSE);
     }
 
     @Override
     public void initialize() {
         messageLabel.setText(message);
-        buttonCancel.setOnAction(event -> { dismiss(); });
-        buttonOK.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                setResult(RESULT_OK);
-                dismiss();
-            }
+        buttonCancel.setOnAction(event -> dismiss());
+        buttonOK.setOnAction( event -> {
+            setResult(RESULT_OK);
+            dismiss();
         });
     }
 }

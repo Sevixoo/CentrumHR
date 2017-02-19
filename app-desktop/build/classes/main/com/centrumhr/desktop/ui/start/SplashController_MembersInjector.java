@@ -1,6 +1,5 @@
 package com.centrumhr.desktop.ui.start;
 
-import com.centrumhr.application.presenter.SplashPresenter;
 import com.centrumhr.desktop.core.Controller;
 import dagger.MembersInjector;
 import javax.annotation.Generated;

@@ -1,6 +1,6 @@
 package com.centrumhr.desktop.ui.employee.adapter;
 
-import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.data.model.employment.EmployeeEntity;
 import com.centrumhr.desktop.ui.employee.data.EmployeeVM;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,7 +25,6 @@ public class EmployeeTableAdapter {
 
     private Callback mListener;
 
-
     private TableView<EmployeeVM> mTableView;
     private ObservableList<EmployeeVM> mData;
 
@@ -47,8 +46,14 @@ public class EmployeeTableAdapter {
         mTableView.getSelectionModel().select(-1);
     }
 
-    public void addData(Employee employee){
-        mData.add(new EmployeeVM(employee));
+    public void addData(EmployeeVM employee ){
+        for (int i = 0; i < mData.size(); i++) {
+            if(mData.get(i).equals(employee)){
+                mData.set(i,employee);
+                return;
+            }
+        }
+        mData.add(employee);
     }
 
     public UUID getSelectedEmployeeID(){
@@ -57,13 +62,9 @@ public class EmployeeTableAdapter {
         return employee.getUuid();
     }
 
-    public void setData(List<Employee> employees){
-        List<EmployeeVM> list = new ArrayList<>();
-        for (Employee employee : employees) {
-            list.add( new EmployeeVM(employee) );
-        }
+    public void setData(List<EmployeeVM> employees){
         mData.clear();
-        mData.addAll(list);
+        mData.addAll(employees);
     }
 
     public EmployeeVM getItem(int position){

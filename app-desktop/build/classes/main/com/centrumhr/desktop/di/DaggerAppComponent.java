@@ -1,65 +1,93 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.application.account.AccountUseCaseFactory;
-import com.centrumhr.application.application.account.AccountUseCaseFactory_Factory;
-import com.centrumhr.application.application.account.IAccountService;
-import com.centrumhr.application.application.account.ILoginService;
-import com.centrumhr.application.application.common.IExecutor;
-import com.centrumhr.application.application.common.IHandler;
-import com.centrumhr.application.application.department.DepartmentUseCaseFactory;
-import com.centrumhr.application.application.department.DepartmentUseCaseFactory_Factory;
-import com.centrumhr.application.application.employee.EmployeeUseCaseFactory;
-import com.centrumhr.application.application.employee.EmployeeUseCaseFactory_Factory;
-import com.centrumhr.application.application.shedule.ScheduleUseCaseFactory;
-import com.centrumhr.application.application.shedule.ScheduleUseCaseFactory_Factory;
-import com.centrumhr.application.application.sync.IDataBaseService;
-import com.centrumhr.application.application.sync.SyncUseCaseFactory;
-import com.centrumhr.application.application.sync.SyncUseCaseFactory_Factory;
-import com.centrumhr.application.application.workFunction.WorkFunctionUseCaseFactory;
-import com.centrumhr.application.application.workFunction.WorkFunctionUseCaseFactory_Factory;
-import com.centrumhr.application.presenter.AddEmployeePresenter;
-import com.centrumhr.application.presenter.AddEmployeePresenter_Factory;
-import com.centrumhr.application.presenter.EmployeeListPresenter;
-import com.centrumhr.application.presenter.EmployeeListPresenter_Factory;
-import com.centrumhr.application.presenter.EmployeePresenter;
-import com.centrumhr.application.presenter.EmployeePresenter_Factory;
-import com.centrumhr.application.presenter.SplashPresenter;
-import com.centrumhr.application.presenter.SplashPresenter_Factory;
-import com.centrumhr.application.presenter.department.AddDepartmentPresenter;
-import com.centrumhr.application.presenter.department.AddDepartmentPresenter_Factory;
-import com.centrumhr.application.presenter.department.DepartmentPresenter;
-import com.centrumhr.application.presenter.department.DepartmentPresenter_Factory;
-import com.centrumhr.application.presenter.shedule.AddAttendancePlanPresenter;
-import com.centrumhr.application.presenter.shedule.AddAttendancePlanPresenter_Factory;
-import com.centrumhr.application.presenter.shedule.AttendancePlanPickerPresenter;
-import com.centrumhr.application.presenter.shedule.AttendancePlanPickerPresenter_Factory;
-import com.centrumhr.application.presenter.shedule.AttendancePlanPresenter;
-import com.centrumhr.application.presenter.shedule.AttendancePlanPresenter_Factory;
-import com.centrumhr.data.domain.IAttendanceDayRepository;
-import com.centrumhr.data.domain.IAttendanceEmployeeRepository;
-import com.centrumhr.data.domain.IAttendancePlanRepository;
-import com.centrumhr.data.domain.IDepartmentRepository;
-import com.centrumhr.data.domain.IEmployeeDepartmentRepository;
-import com.centrumhr.data.domain.IEmployeeRepository;
-import com.centrumhr.data.domain.IWorkFunctionRepository;
-import com.centrumhr.data.importer.AttendancePlanImporter;
+import com.centrumhr.application.account.GetLoggedAccountUseCase;
+import com.centrumhr.application.account.GetLoggedAccountUseCase_Factory;
+import com.centrumhr.application.account.IAccountService;
+import com.centrumhr.application.account.ILoginService;
+import com.centrumhr.application.department.AddDepartmentUseCase;
+import com.centrumhr.application.department.AddDepartmentUseCase_Factory;
+import com.centrumhr.application.department.DeleteDepartmentUseCase;
+import com.centrumhr.application.department.DeleteDepartmentUseCase_Factory;
+import com.centrumhr.application.department.LoadDepartmentsUseCase;
+import com.centrumhr.application.department.LoadDepartmentsUseCase_Factory;
+import com.centrumhr.application.employee.AddEmployeeUseCase;
+import com.centrumhr.application.employee.AddEmployeeUseCase_Factory;
+import com.centrumhr.application.employee.EditEmployeeUseCase;
+import com.centrumhr.application.employee.EditEmployeeUseCase_Factory;
+import com.centrumhr.application.employee.GetEmployeeUseCase;
+import com.centrumhr.application.employee.GetEmployeeUseCase_Factory;
+import com.centrumhr.application.employee.LoadEmployeesUseCase;
+import com.centrumhr.application.employee.LoadEmployeesUseCase_Factory;
+import com.centrumhr.application.employee.RemoveEmployeeUseCase;
+import com.centrumhr.application.employee.RemoveEmployeeUseCase_Factory;
+import com.centrumhr.application.shedule.ChangeAttendanceNameUseCase;
+import com.centrumhr.application.shedule.ChangeAttendanceNameUseCase_Factory;
+import com.centrumhr.application.shedule.CreateAttendancePlanUseCase;
+import com.centrumhr.application.shedule.CreateAttendancePlanUseCase_Factory;
+import com.centrumhr.application.shedule.LoadAttendancePlanUseCase;
+import com.centrumhr.application.shedule.LoadAttendancePlanUseCase_Factory;
+import com.centrumhr.application.shedule.LoadScheduleListUseCase;
+import com.centrumhr.application.shedule.LoadScheduleListUseCase_Factory;
+import com.centrumhr.application.shedule.SaveAttendancePlanUseCase;
+import com.centrumhr.application.shedule.SaveAttendancePlanUseCase_Factory;
+import com.centrumhr.application.shedule.ScheduleCreatorProvider;
+import com.centrumhr.application.shedule.ScheduleCreatorProvider_Factory;
+import com.centrumhr.application.shedule.SetAttendanceDayTypeUseCase;
+import com.centrumhr.application.shedule.SetAttendanceDayTypeUseCase_Factory;
+import com.centrumhr.application.sync.CreateDataBaseUseCase;
+import com.centrumhr.application.sync.CreateDataBaseUseCase_Factory;
+import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.application.sync.StartApplicationUseCase;
+import com.centrumhr.application.sync.StartApplicationUseCase_Factory;
+import com.centrumhr.application.sync.SyncDataBaseUseCase;
+import com.centrumhr.application.sync.SyncDataBaseUseCase_Factory;
+import com.centrumhr.application.workFunction.LoadWorkFunctionsUseCase;
+import com.centrumhr.application.workFunction.LoadWorkFunctionsUseCase_Factory;
+import com.centrumhr.data.core.IORMLiteDataBase;
 import com.centrumhr.data.importer.EmployeeImporter;
-import com.centrumhr.data.model.attendance.AttendancePlanFactory;
-import com.centrumhr.data.model.employment.EmployeeFactory;
-import com.centrumhr.data.orm.UnitOfWork;
-import com.centrumhr.desktop.data.RepositoryFactory;
+import com.centrumhr.data.importer.EmployeeImporter_Factory;
+import com.centrumhr.data.model.employment.EmployeeFactory_Factory;
+import com.centrumhr.data.model.employment.IEmployeeRepository;
 import com.centrumhr.desktop.ui.employee.AddEmployeeController;
 import com.centrumhr.desktop.ui.employee.AddEmployeeController_MembersInjector;
 import com.centrumhr.desktop.ui.employee.EmployeeController;
 import com.centrumhr.desktop.ui.employee.EmployeeController_MembersInjector;
 import com.centrumhr.desktop.ui.employee.EmployeeListController;
 import com.centrumhr.desktop.ui.employee.EmployeeListController_MembersInjector;
+import com.centrumhr.desktop.ui.employee.presenter.AddEmployeePresenter;
+import com.centrumhr.desktop.ui.employee.presenter.AddEmployeePresenter_Factory;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeeListPresenter;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeeListPresenter_Factory;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeePresenter;
+import com.centrumhr.desktop.ui.employee.presenter.EmployeePresenter_Factory;
 import com.centrumhr.desktop.ui.schedule.creator.AddScheduleController;
 import com.centrumhr.desktop.ui.schedule.creator.AddScheduleController_MembersInjector;
+import com.centrumhr.desktop.ui.schedule.creator.AddSchedulePresenter;
+import com.centrumhr.desktop.ui.schedule.creator.AddSchedulePresenter_Factory;
+import com.centrumhr.desktop.ui.schedule.list.ScheduleListController;
+import com.centrumhr.desktop.ui.schedule.list.ScheduleListController_MembersInjector;
+import com.centrumhr.desktop.ui.schedule.list.ScheduleListPresenter;
+import com.centrumhr.desktop.ui.schedule.list.ScheduleListPresenter_Factory;
 import com.centrumhr.desktop.ui.schedule.planner.SchedulePlannerController;
 import com.centrumhr.desktop.ui.schedule.planner.SchedulePlannerController_MembersInjector;
+import com.centrumhr.desktop.ui.schedule.planner.presenter.AttendancePlanPresenter;
+import com.centrumhr.desktop.ui.schedule.planner.presenter.AttendancePlanPresenter_Factory;
+import com.centrumhr.desktop.ui.settings.department.AddDepartmentController;
+import com.centrumhr.desktop.ui.settings.department.AddDepartmentController_MembersInjector;
+import com.centrumhr.desktop.ui.settings.department.DepartmentSettingsController;
+import com.centrumhr.desktop.ui.settings.department.DepartmentSettingsController_MembersInjector;
+import com.centrumhr.desktop.ui.settings.department.presenter.AddDepartmentPresenter;
+import com.centrumhr.desktop.ui.settings.department.presenter.AddDepartmentPresenter_Factory;
+import com.centrumhr.desktop.ui.settings.department.presenter.DepartmentPresenter;
+import com.centrumhr.desktop.ui.settings.department.presenter.DepartmentPresenter_Factory;
 import com.centrumhr.desktop.ui.start.SplashController;
 import com.centrumhr.desktop.ui.start.SplashController_MembersInjector;
+import com.centrumhr.desktop.ui.start.SplashPresenter;
+import com.centrumhr.desktop.ui.start.SplashPresenter_Factory;
+import com.centrumhr.domain.attendance.AttendancePlanFactory;
+import com.centrumhr.domain.attendance.IAttendancePlanRepository;
+import com.centrumhr.domain.attendance.ICalendarService;
+import com.centrumhr.domain.schedule.ScheduleService;
 import dagger.MembersInjector;
 import dagger.internal.MembersInjectors;
 import dagger.internal.ScopedProvider;
@@ -68,15 +96,18 @@ import javax.inject.Provider;
 
 @Generated("dagger.internal.codegen.ComponentProcessor")
 public final class DaggerAppComponent implements AppComponent {
+  private Provider<IDataBaseService> provideIDataBaseServiceProvider;
   private Provider<IAccountService> provideAccountServiceProvider;
   private Provider<ILoginService> provideLoginServiceProvider;
-  private Provider<IExecutor> provideThreadExecutorProvider;
-  private Provider<IHandler> providePostExecutionThreadProvider;
-  private Provider<AccountUseCaseFactory> accountUseCaseFactoryProvider;
-  private Provider<IDataBaseService> provideIDataBaseServiceProvider;
-  private Provider<SyncUseCaseFactory> syncUseCaseFactoryProvider;
+  private Provider<GetLoggedAccountUseCase> getLoggedAccountUseCaseProvider;
+  private Provider<CreateDataBaseUseCase> createDataBaseUseCaseProvider;
+  private Provider<SyncDataBaseUseCase> syncDataBaseUseCaseProvider;
+  private Provider<StartApplicationUseCase> startApplicationUseCaseProvider;
   private Provider<SplashPresenter> splashPresenterProvider;
   private MembersInjector<SplashController> splashControllerMembersInjector;
+  private Provider<ICalendarService> providesCalendarServiceProvider;
+  private Provider<AttendancePlanFactory> providesAttendancePlanFactoryProvider;
+  private Provider<ScheduleCreatorProvider> scheduleCreatorProvider;
 
   private DaggerAppComponent(Builder builder) {  
     assert builder != null;
@@ -88,15 +119,18 @@ public final class DaggerAppComponent implements AppComponent {
   }
 
   private void initialize(final Builder builder) {  
+    this.provideIDataBaseServiceProvider = ScopedProvider.create(ApplicationModule_ProvideIDataBaseServiceFactory.create(builder.applicationModule));
     this.provideAccountServiceProvider = ApplicationModule_ProvideAccountServiceFactory.create(builder.applicationModule);
     this.provideLoginServiceProvider = ApplicationModule_ProvideLoginServiceFactory.create(builder.applicationModule);
-    this.provideThreadExecutorProvider = ApplicationModule_ProvideThreadExecutorFactory.create(builder.applicationModule);
-    this.providePostExecutionThreadProvider = ApplicationModule_ProvidePostExecutionThreadFactory.create(builder.applicationModule);
-    this.accountUseCaseFactoryProvider = AccountUseCaseFactory_Factory.create(provideAccountServiceProvider, provideLoginServiceProvider, provideThreadExecutorProvider, providePostExecutionThreadProvider);
-    this.provideIDataBaseServiceProvider = ScopedProvider.create(ApplicationModule_ProvideIDataBaseServiceFactory.create(builder.applicationModule));
-    this.syncUseCaseFactoryProvider = SyncUseCaseFactory_Factory.create(provideThreadExecutorProvider, providePostExecutionThreadProvider, provideIDataBaseServiceProvider);
-    this.splashPresenterProvider = SplashPresenter_Factory.create(accountUseCaseFactoryProvider, syncUseCaseFactoryProvider, provideIDataBaseServiceProvider);
+    this.getLoggedAccountUseCaseProvider = GetLoggedAccountUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), provideAccountServiceProvider, provideLoginServiceProvider);
+    this.createDataBaseUseCaseProvider = CreateDataBaseUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), provideIDataBaseServiceProvider);
+    this.syncDataBaseUseCaseProvider = SyncDataBaseUseCase_Factory.create((MembersInjector) MembersInjectors.noOp());
+    this.startApplicationUseCaseProvider = StartApplicationUseCase_Factory.create((MembersInjector) MembersInjectors.noOp());
+    this.splashPresenterProvider = SplashPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), provideIDataBaseServiceProvider, getLoggedAccountUseCaseProvider, createDataBaseUseCaseProvider, syncDataBaseUseCaseProvider, startApplicationUseCaseProvider);
     this.splashControllerMembersInjector = SplashController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), splashPresenterProvider);
+    this.providesCalendarServiceProvider = ApplicationModule_ProvidesCalendarServiceFactory.create(builder.applicationModule);
+    this.providesAttendancePlanFactoryProvider = ApplicationModule_ProvidesAttendancePlanFactoryFactory.create(builder.applicationModule);
+    this.scheduleCreatorProvider = ScopedProvider.create(ScheduleCreatorProvider_Factory.create());
   }
 
   @Override
@@ -145,36 +179,42 @@ public final class DaggerAppComponent implements AppComponent {
     private final DataBaseModule dataBaseModule;
     private final AccountModule accountModule;
     private final EmploymentModule employmentModule;
-    private Provider<EmployeeFactory> provideEmployeeFactoryProvider;
-    private Provider<UnitOfWork> providesUnitOfWorkProvider;
-    private Provider<RepositoryFactory> provideRepositoryFactoryProvider;
-    private Provider<IDepartmentRepository> provideDepartmentRepositoryProvider;
-    private Provider<IEmployeeRepository> provideEmployeeRepositoryProvider;
-    private Provider<IWorkFunctionRepository> provideWorkFunctionRepositoryProvider;
-    private Provider<IEmployeeDepartmentRepository> provideEmployeeDepartmentRepositoryProvider;
-    private Provider<EmployeeImporter> privateEmployeeImporterProvider;
-    private Provider<EmployeeUseCaseFactory> employeeUseCaseFactoryProvider;
-    private Provider<DepartmentUseCaseFactory> departmentUseCaseFactoryProvider;
-    private Provider<WorkFunctionUseCaseFactory> workFunctionUseCaseFactoryProvider;
+    private Provider<IORMLiteDataBase> providesORMLiteDataBaseProvider;
+    private Provider<LoadWorkFunctionsUseCase> loadWorkFunctionsUseCaseProvider;
+    private Provider<LoadDepartmentsUseCase> loadDepartmentsUseCaseProvider;
+    private Provider<EmployeeImporter> employeeImporterProvider;
+    private Provider<AddEmployeeUseCase> addEmployeeUseCaseProvider;
+    private Provider<GetEmployeeUseCase> getEmployeeUseCaseProvider;
+    private Provider<EditEmployeeUseCase> editEmployeeUseCaseProvider;
     private Provider<AddEmployeePresenter> addEmployeePresenterProvider;
     private MembersInjector<AddEmployeeController> addEmployeeControllerMembersInjector;
+    private Provider<LoadEmployeesUseCase> loadEmployeesUseCaseProvider;
     private Provider<EmployeeListPresenter> employeeListPresenterProvider;
     private MembersInjector<EmployeeListController> employeeListControllerMembersInjector;
-    private Provider<IAttendanceEmployeeRepository> provideAttendanceEmployeeRepositoryProvider;
-    private Provider<IAttendancePlanRepository> provideAttendancePlanRepositoryProvider;
-    private Provider<IAttendanceDayRepository> provideAttendanceDayRepositoryProvider;
-    private Provider<AttendancePlanImporter> provideAttendancePlanImporterProvider;
-    private Provider<AttendancePlanFactory> provideAttendancePlanFactoryProvider;
-    private Provider<ScheduleUseCaseFactory> scheduleUseCaseFactoryProvider;
-    private Provider<AddAttendancePlanPresenter> addAttendancePlanPresenterProvider;
+    private Provider<IAttendancePlanRepository> providesAttendancePlanRepositoryProvider;
+    private Provider<ScheduleService> providesScheduleServiceProvider;
+    private Provider<IEmployeeRepository> providesEmployeeRepositoryProvider;
+    private Provider<CreateAttendancePlanUseCase> createAttendancePlanUseCaseProvider;
+    private Provider<AddSchedulePresenter> addSchedulePresenterProvider;
     private MembersInjector<AddScheduleController> addScheduleControllerMembersInjector;
+    private Provider<RemoveEmployeeUseCase> removeEmployeeUseCaseProvider;
     private Provider<EmployeePresenter> employeePresenterProvider;
     private MembersInjector<EmployeeController> employeeControllerMembersInjector;
+    private Provider<LoadAttendancePlanUseCase> loadAttendancePlanUseCaseProvider;
+    private Provider<SaveAttendancePlanUseCase> saveAttendancePlanUseCaseProvider;
+    private Provider<SetAttendanceDayTypeUseCase> setAttendanceDayTypeUseCaseProvider;
+    private Provider<ChangeAttendanceNameUseCase> changeAttendanceNameUseCaseProvider;
     private Provider<AttendancePlanPresenter> attendancePlanPresenterProvider;
     private MembersInjector<SchedulePlannerController> schedulePlannerControllerMembersInjector;
-    private Provider<AttendancePlanPickerPresenter> attendancePlanPickerPresenterProvider;
+    private Provider<DeleteDepartmentUseCase> deleteDepartmentUseCaseProvider;
     private Provider<DepartmentPresenter> departmentPresenterProvider;
+    private MembersInjector<DepartmentSettingsController> departmentSettingsControllerMembersInjector;
+    private Provider<AddDepartmentUseCase> addDepartmentUseCaseProvider;
     private Provider<AddDepartmentPresenter> addDepartmentPresenterProvider;
+    private MembersInjector<AddDepartmentController> addDepartmentControllerMembersInjector;
+    private Provider<LoadScheduleListUseCase> loadScheduleListUseCaseProvider;
+    private Provider<ScheduleListPresenter> scheduleListPresenterProvider;
+    private MembersInjector<ScheduleListController> scheduleListControllerMembersInjector;
     private MembersInjector<SplashController> splashControllerMembersInjector;
   
     private LoggedAccountComponentImpl(DataBaseModule dataBaseModule, AccountModule accountModule) {  
@@ -188,39 +228,49 @@ public final class DaggerAppComponent implements AppComponent {
       this.accountModule = accountModule;
       this.employmentModule = new EmploymentModule();
       initialize();
+      initialize1();
     }
   
     private void initialize() {  
-      this.provideEmployeeFactoryProvider = EmploymentModule_ProvideEmployeeFactoryFactory.create(employmentModule);
-      this.providesUnitOfWorkProvider = DataBaseModule_ProvidesUnitOfWorkFactory.create(dataBaseModule);
-      this.provideRepositoryFactoryProvider = DataBaseModule_ProvideRepositoryFactoryFactory.create(dataBaseModule, providesUnitOfWorkProvider);
-      this.provideDepartmentRepositoryProvider = DataBaseModule_ProvideDepartmentRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideEmployeeRepositoryProvider = DataBaseModule_ProvideEmployeeRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideWorkFunctionRepositoryProvider = DataBaseModule_ProvideWorkFunctionRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideEmployeeDepartmentRepositoryProvider = DataBaseModule_ProvideEmployeeDepartmentRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.privateEmployeeImporterProvider = DataBaseModule_PrivateEmployeeImporterFactory.create(dataBaseModule, provideDepartmentRepositoryProvider, provideEmployeeRepositoryProvider, provideWorkFunctionRepositoryProvider, provideEmployeeDepartmentRepositoryProvider);
-      this.employeeUseCaseFactoryProvider = EmployeeUseCaseFactory_Factory.create(DaggerAppComponent.this.provideThreadExecutorProvider, DaggerAppComponent.this.providePostExecutionThreadProvider, provideEmployeeFactoryProvider, privateEmployeeImporterProvider, provideEmployeeRepositoryProvider);
-      this.departmentUseCaseFactoryProvider = DepartmentUseCaseFactory_Factory.create(DaggerAppComponent.this.provideThreadExecutorProvider, DaggerAppComponent.this.providePostExecutionThreadProvider, provideDepartmentRepositoryProvider);
-      this.workFunctionUseCaseFactoryProvider = WorkFunctionUseCaseFactory_Factory.create(DaggerAppComponent.this.provideThreadExecutorProvider, DaggerAppComponent.this.providePostExecutionThreadProvider, provideWorkFunctionRepositoryProvider);
-      this.addEmployeePresenterProvider = AddEmployeePresenter_Factory.create(employeeUseCaseFactoryProvider, departmentUseCaseFactoryProvider, workFunctionUseCaseFactoryProvider);
+      this.providesORMLiteDataBaseProvider = DataBaseModule_ProvidesORMLiteDataBaseFactory.create(dataBaseModule);
+      this.loadWorkFunctionsUseCaseProvider = LoadWorkFunctionsUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.loadDepartmentsUseCaseProvider = LoadDepartmentsUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.employeeImporterProvider = EmployeeImporter_Factory.create(providesORMLiteDataBaseProvider);
+      this.addEmployeeUseCaseProvider = AddEmployeeUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), EmployeeFactory_Factory.create(), employeeImporterProvider);
+      this.getEmployeeUseCaseProvider = GetEmployeeUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.editEmployeeUseCaseProvider = EditEmployeeUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), EmployeeFactory_Factory.create(), employeeImporterProvider);
+      this.addEmployeePresenterProvider = AddEmployeePresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), loadWorkFunctionsUseCaseProvider, loadDepartmentsUseCaseProvider, addEmployeeUseCaseProvider, getEmployeeUseCaseProvider, editEmployeeUseCaseProvider);
       this.addEmployeeControllerMembersInjector = AddEmployeeController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), addEmployeePresenterProvider);
-      this.employeeListPresenterProvider = EmployeeListPresenter_Factory.create(employeeUseCaseFactoryProvider);
+      this.loadEmployeesUseCaseProvider = LoadEmployeesUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.employeeListPresenterProvider = EmployeeListPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), loadEmployeesUseCaseProvider);
       this.employeeListControllerMembersInjector = EmployeeListController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), employeeListPresenterProvider);
-      this.provideAttendanceEmployeeRepositoryProvider = DataBaseModule_ProvideAttendanceEmployeeRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideAttendancePlanRepositoryProvider = DataBaseModule_ProvideAttendancePlanRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideAttendanceDayRepositoryProvider = DataBaseModule_ProvideAttendanceDayRepositoryFactory.create(dataBaseModule, provideRepositoryFactoryProvider);
-      this.provideAttendancePlanImporterProvider = DataBaseModule_ProvideAttendancePlanImporterFactory.create(dataBaseModule, provideAttendanceEmployeeRepositoryProvider, provideAttendancePlanRepositoryProvider, provideAttendanceDayRepositoryProvider);
-      this.provideAttendancePlanFactoryProvider = EmploymentModule_ProvideAttendancePlanFactoryFactory.create(employmentModule);
-      this.scheduleUseCaseFactoryProvider = ScheduleUseCaseFactory_Factory.create(DaggerAppComponent.this.provideThreadExecutorProvider, DaggerAppComponent.this.providePostExecutionThreadProvider, provideAttendancePlanImporterProvider, provideAttendancePlanFactoryProvider, provideEmployeeRepositoryProvider, provideAttendancePlanRepositoryProvider);
-      this.addAttendancePlanPresenterProvider = AddAttendancePlanPresenter_Factory.create(scheduleUseCaseFactoryProvider, employeeUseCaseFactoryProvider);
-      this.addScheduleControllerMembersInjector = AddScheduleController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), addAttendancePlanPresenterProvider);
-      this.employeePresenterProvider = EmployeePresenter_Factory.create(employeeUseCaseFactoryProvider);
+      this.providesAttendancePlanRepositoryProvider = DataBaseModule_ProvidesAttendancePlanRepositoryFactory.create(dataBaseModule, providesORMLiteDataBaseProvider, DaggerAppComponent.this.providesAttendancePlanFactoryProvider);
+      this.providesScheduleServiceProvider = DataBaseModule_ProvidesScheduleServiceFactory.create(dataBaseModule, DaggerAppComponent.this.providesAttendancePlanFactoryProvider, DaggerAppComponent.this.providesCalendarServiceProvider);
+      this.providesEmployeeRepositoryProvider = DataBaseModule_ProvidesEmployeeRepositoryFactory.create(dataBaseModule, providesORMLiteDataBaseProvider);
+      this.createAttendancePlanUseCaseProvider = CreateAttendancePlanUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesAttendancePlanRepositoryProvider, providesScheduleServiceProvider, DaggerAppComponent.this.scheduleCreatorProvider, providesEmployeeRepositoryProvider);
+      this.addSchedulePresenterProvider = AddSchedulePresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), DaggerAppComponent.this.providesCalendarServiceProvider, loadEmployeesUseCaseProvider, createAttendancePlanUseCaseProvider);
+      this.addScheduleControllerMembersInjector = AddScheduleController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), addSchedulePresenterProvider);
+      this.removeEmployeeUseCaseProvider = RemoveEmployeeUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.employeePresenterProvider = EmployeePresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), removeEmployeeUseCaseProvider);
       this.employeeControllerMembersInjector = EmployeeController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), employeePresenterProvider);
-      this.attendancePlanPresenterProvider = AttendancePlanPresenter_Factory.create(scheduleUseCaseFactoryProvider);
+      this.loadAttendancePlanUseCaseProvider = LoadAttendancePlanUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesAttendancePlanRepositoryProvider, DaggerAppComponent.this.scheduleCreatorProvider);
+      this.saveAttendancePlanUseCaseProvider = SaveAttendancePlanUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesAttendancePlanRepositoryProvider, DaggerAppComponent.this.scheduleCreatorProvider);
+      this.setAttendanceDayTypeUseCaseProvider = SetAttendanceDayTypeUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesScheduleServiceProvider, DaggerAppComponent.this.scheduleCreatorProvider);
+      this.changeAttendanceNameUseCaseProvider = ChangeAttendanceNameUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), DaggerAppComponent.this.scheduleCreatorProvider);
+      this.attendancePlanPresenterProvider = AttendancePlanPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), DaggerAppComponent.this.providesCalendarServiceProvider, loadAttendancePlanUseCaseProvider, saveAttendancePlanUseCaseProvider, setAttendanceDayTypeUseCaseProvider, changeAttendanceNameUseCaseProvider);
       this.schedulePlannerControllerMembersInjector = SchedulePlannerController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), attendancePlanPresenterProvider);
-      this.attendancePlanPickerPresenterProvider = AttendancePlanPickerPresenter_Factory.create(scheduleUseCaseFactoryProvider);
-      this.departmentPresenterProvider = DepartmentPresenter_Factory.create(departmentUseCaseFactoryProvider);
-      this.addDepartmentPresenterProvider = AddDepartmentPresenter_Factory.create(departmentUseCaseFactoryProvider);
+      this.deleteDepartmentUseCaseProvider = DeleteDepartmentUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.departmentPresenterProvider = DepartmentPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), loadDepartmentsUseCaseProvider, deleteDepartmentUseCaseProvider);
+      this.departmentSettingsControllerMembersInjector = DepartmentSettingsController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), departmentPresenterProvider);
+      this.addDepartmentUseCaseProvider = AddDepartmentUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesORMLiteDataBaseProvider);
+      this.addDepartmentPresenterProvider = AddDepartmentPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), addDepartmentUseCaseProvider);
+      this.addDepartmentControllerMembersInjector = AddDepartmentController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), addDepartmentPresenterProvider);
+      this.loadScheduleListUseCaseProvider = LoadScheduleListUseCase_Factory.create((MembersInjector) MembersInjectors.noOp(), providesAttendancePlanRepositoryProvider);
+      this.scheduleListPresenterProvider = ScheduleListPresenter_Factory.create((MembersInjector) MembersInjectors.noOp(), loadScheduleListUseCaseProvider);
+      this.scheduleListControllerMembersInjector = ScheduleListController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), scheduleListPresenterProvider);
+    }
+  
+    private void initialize1() {  
       this.splashControllerMembersInjector = SplashController_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), DaggerAppComponent.this.splashPresenterProvider);
     }
   
@@ -250,33 +300,18 @@ public final class DaggerAppComponent implements AppComponent {
     }
   
     @Override
-    public AddEmployeePresenter getAddEmployeePresenter() {  
-      return addEmployeePresenterProvider.get();
+    public void inject(DepartmentSettingsController controller) {  
+      departmentSettingsControllerMembersInjector.injectMembers(controller);
     }
   
     @Override
-    public EmployeeListPresenter getEmployeeListPresenter() {  
-      return employeeListPresenterProvider.get();
+    public void inject(AddDepartmentController controller) {  
+      addDepartmentControllerMembersInjector.injectMembers(controller);
     }
   
     @Override
-    public EmployeeUseCaseFactory getEmployeeUseCaseFactory() {  
-      return employeeUseCaseFactoryProvider.get();
-    }
-  
-    @Override
-    public AttendancePlanPickerPresenter getAttendancePlanPickerPresenter() {  
-      return attendancePlanPickerPresenterProvider.get();
-    }
-  
-    @Override
-    public DepartmentPresenter getDepartmentPresenter() {  
-      return departmentPresenterProvider.get();
-    }
-  
-    @Override
-    public AddDepartmentPresenter getAddDepartmentPresenter() {  
-      return addDepartmentPresenterProvider.get();
+    public void inject(ScheduleListController scheduleListController) {  
+      scheduleListControllerMembersInjector.injectMembers(scheduleListController);
     }
   }
 }

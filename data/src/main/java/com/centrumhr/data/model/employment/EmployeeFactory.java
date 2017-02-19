@@ -4,42 +4,53 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.centrumhr.data.mapper.employment.DepartmentMapper;
+import com.centrumhr.data.mapper.employment.WorkFunctionMapper;
+import com.centrumhr.dto.employment.DepartmentDTO;
+import com.centrumhr.dto.employment.WorkFunctionDTO;
+import com.centrumhr.dto.employment.WorkTime;
+
+import javax.inject.Inject;
+
 /**
  * Created by Seweryn on 25.10.2016.
  */
 public class EmployeeFactory {
 
+    @Inject
     public EmployeeFactory() { }
 
-    public Employee createEmployee( Employee employee, String firstName, String lastName, String code, WorkFunction workFunction , List<Department> departmentList, Date employmentDate , boolean isJudgment , WorkTime workTime ){
-        employee.setFirstName(firstName);
-        employee.setSurname(lastName);
-        employee.setCode(code);
-        employee.setEmploymentDate(employmentDate);
-        employee.setWorkTime(workTime);
-        employee.setJudgment(isJudgment);
-        employee.setWorkFunction( workFunction );
-        employee.setDepartments( createEmployeeDepartments(employee , departmentList) );
-        return employee;
+    public EmployeeEntity createEmployee(EmployeeEntity employeeEntity, String firstName, String lastName, String code, WorkFunctionDTO workFunction , List<DepartmentDTO> departments, Date employmentDate , boolean isJudgment , WorkTime workTime ){
+        employeeEntity.setFirstName(firstName);
+        employeeEntity.setSurname(lastName);
+        employeeEntity.setCode(code);
+        employeeEntity.setEmploymentDate(employmentDate);
+        employeeEntity.setWorkTime(workTime);
+        employeeEntity.setJudgment(isJudgment);
+        employeeEntity.setWorkFunctionEntity(WorkFunctionMapper.INSTANCE.forward(workFunction));
+        employeeEntity.setDepartments( createEmployeeDepartments(employeeEntity, departments) );
+        return employeeEntity;
     }
 
-    public Employee createEmployee(String firstName, String lastName, String code, WorkFunction workFunction , List<Department> departmentList, Date employmentDate , boolean isJudgment , WorkTime workTime ){
-        Employee employee = new Employee();
-        employee.setFirstName(firstName);
-        employee.setSurname(lastName);
-        employee.setCode(code);
-        employee.setEmploymentDate(employmentDate);
-        employee.setWorkTime(workTime);
-        employee.setJudgment(isJudgment);
-        employee.setWorkFunction( workFunction );
-        employee.setDepartments( createEmployeeDepartments(employee , departmentList) );
-        return employee;
+    public EmployeeEntity createEmployee(String firstName, String lastName, String code, WorkFunctionDTO workFunction, List<DepartmentDTO> departmentEntityList, Date employmentDate , boolean isJudgment , WorkTime workTime ){
+        EmployeeEntity employeeEntity = new EmployeeEntity();
+        employeeEntity.setFirstName(firstName);
+        employeeEntity.setSurname(lastName);
+        employeeEntity.setCode(code);
+        employeeEntity.setEmploymentDate(employmentDate);
+        employeeEntity.setWorkTime(workTime);
+        employeeEntity.setJudgment(isJudgment);
+        employeeEntity.setWorkFunctionEntity(WorkFunctionMapper.INSTANCE.forward(workFunction));
+        employeeEntity.setDepartments( createEmployeeDepartments(employeeEntity, departmentEntityList) );
+        return employeeEntity;
     }
 
-    private List<EmployeeDepartment> createEmployeeDepartments( Employee employee , List<Department> departmentList  ){
-        List<EmployeeDepartment> list = new ArrayList<>();
-        for (Department department : departmentList) {
-            list.add( new EmployeeDepartment( employee , department ) );
+    private List<EmployeeDepartmentEntity> createEmployeeDepartments(EmployeeEntity employeeEntity, List<DepartmentDTO> departmentDTOs){
+        if(departmentDTOs==null)return null;
+        List<EmployeeDepartmentEntity> list = new ArrayList<>();
+        List<DepartmentEntity> entities = DepartmentMapper.INSTANCE.forward(departmentDTOs);
+        for (DepartmentEntity departmentEntity : entities) {
+            list.add( new EmployeeDepartmentEntity(employeeEntity, departmentEntity) );
         }
         return list;
     }

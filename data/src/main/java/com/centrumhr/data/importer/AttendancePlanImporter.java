@@ -1,88 +1,89 @@
 package com.centrumhr.data.importer;
 
-import com.centrumhr.data.domain.IAttendanceDayRepository;
-import com.centrumhr.data.domain.IAttendanceEmployeeRepository;
-import com.centrumhr.data.domain.IAttendancePlanRepository;
-import com.centrumhr.data.exception.DatabaseException;
-import com.centrumhr.data.model.attendance.AttendanceDay;
-import com.centrumhr.data.model.attendance.AttendanceEmployee;
-import com.centrumhr.data.model.attendance.AttendancePlan;
-import com.centrumhr.data.model.employment.Employee;
+import com.centrumhr.data.core.DAO;
+import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.DatabaseException;
+import com.centrumhr.data.model.attendance.AttendanceDayEntity;
+import com.centrumhr.data.model.attendance.AttendanceEmployeeEntity;
+import com.centrumhr.data.model.attendance.AttendancePlanEntity;
+
+import javax.inject.Inject;
 
 /**
  * Created by Seweryn on 13.11.2016.
  */
 public class AttendancePlanImporter {
 
-    private IAttendanceEmployeeRepository mAttendanceEmployeeRepository;
-    private IAttendancePlanRepository mAttendancePlanRepository;
-    private IAttendanceDayRepository mAttendanceDayRepository;
+    private DAO<AttendanceEmployeeEntity>   attendanceEmployeeDAO;
+    private DAO<AttendanceDayEntity>        attendanceDayDAO;
+    private DAO<AttendancePlanEntity>       attendancePlanDAO;
 
-    public AttendancePlanImporter(IAttendanceEmployeeRepository mAttendanceEmployeeRepository, IAttendancePlanRepository mAttendancePlanRepository, IAttendanceDayRepository mAttendanceDayRepository) {
-        this.mAttendanceEmployeeRepository = mAttendanceEmployeeRepository;
-        this.mAttendancePlanRepository = mAttendancePlanRepository;
-        this.mAttendanceDayRepository = mAttendanceDayRepository;
+    @Inject
+    public AttendancePlanImporter(IORMLiteDataBase dataBase) {
+        this.attendanceEmployeeDAO = dataBase.provideDAO(AttendanceEmployeeEntity.class);
+        this.attendancePlanDAO = dataBase.provideDAO(AttendancePlanEntity.class);
+        this.attendanceDayDAO = dataBase.provideDAO(AttendanceDayEntity.class);
     }
 
-    public void importData(AttendancePlan attendancePlanDTO)throws DatabaseException {
+    public void importData(AttendancePlanEntity attendancePlanEntityDTO)throws DatabaseException {
 
-        AttendancePlan attendancePlan = mAttendancePlanRepository.load(attendancePlanDTO.getUniqueId());
-        if(attendancePlan == null){
-            attendancePlan = attendancePlanDTO;
+        AttendancePlanEntity attendancePlanEntity = attendancePlanDAO.load(attendancePlanEntityDTO.getUniqueId());
+        if(attendancePlanEntity == null){
+            attendancePlanEntity = attendancePlanEntityDTO;
         }else{
-            attendancePlan.update(attendancePlanDTO);
+            attendancePlanEntity.update(attendancePlanEntityDTO);
         }
 
-        mAttendancePlanRepository.save(attendancePlan);
+        attendancePlanDAO.save(attendancePlanEntity);
 
-        for( AttendanceEmployee attendanceEmployee : attendancePlan.getEmployees() ){
+        for( AttendanceEmployeeEntity attendanceEmployeeEntity : attendancePlanEntity.getEmployees() ){
             boolean found = false;
-            for( AttendanceEmployee attendanceEmployeeDTO : attendancePlanDTO.getEmployees() ){
-                if ( attendanceEmployee.equals(attendanceEmployeeDTO) ){
+            for( AttendanceEmployeeEntity attendanceEmployeeEntityDTO : attendancePlanEntityDTO.getEmployees() ){
+                if ( attendanceEmployeeEntity.equals(attendanceEmployeeEntityDTO) ){
                     found = true;
                     break;
                 }
             }
             if(!found){
-                for(AttendanceDay attendanceDay : attendanceEmployee.getAttendanceDays()){
-                    mAttendanceDayRepository.delete(attendanceDay.getUniqueId());
+                for(AttendanceDayEntity attendanceDayEntity : attendanceEmployeeEntity.getAttendanceDayEntities()){
+                    attendanceDayDAO.delete(attendanceDayEntity.getUniqueId());
                 }
-                mAttendanceEmployeeRepository.delete(attendanceEmployee.getUniqueId());
+                attendanceDayDAO.delete(attendanceEmployeeEntity.getUniqueId());
             }
         }
 
-        for(AttendanceEmployee attendanceEmployeeDTO : attendancePlanDTO.getEmployees()){
-            AttendanceEmployee attendanceEmployee = mAttendanceEmployeeRepository.load( attendanceEmployeeDTO.getUniqueId() );
-            if(attendanceEmployee==null){
-                attendanceEmployee = attendanceEmployeeDTO;
+        for(AttendanceEmployeeEntity attendanceEmployeeEntityDTO : attendancePlanEntityDTO.getEmployees()){
+            AttendanceEmployeeEntity attendanceEmployeeEntity = attendanceEmployeeDAO.load( attendanceEmployeeEntityDTO.getUniqueId() );
+            if(attendanceEmployeeEntity ==null){
+                attendanceEmployeeEntity = attendanceEmployeeEntityDTO;
             }else{
-                attendanceEmployee.update(attendanceEmployeeDTO);
+                attendanceEmployeeEntity.update(attendanceEmployeeEntityDTO);
             }
-            attendanceEmployee.setAttendancePlan(attendancePlan);
-            mAttendanceEmployeeRepository.save(attendanceEmployee);
+            attendanceEmployeeEntity.setAttendancePlanEntity(attendancePlanEntity);
+            attendanceEmployeeDAO.save(attendanceEmployeeEntity);
 
-            for( AttendanceDay attendanceDay : attendanceEmployee.getAttendanceDays() ){
+            for( AttendanceDayEntity attendanceDayEntity : attendanceEmployeeEntity.getAttendanceDayEntities() ){
                 boolean found = false;
-                for( AttendanceDay attendanceDayDTO : attendanceEmployeeDTO.getAttendanceDays() ){
-                    if ( attendanceDayDTO.equals( attendanceDay) ){
+                for( AttendanceDayEntity attendanceDayEntityDTO : attendanceEmployeeEntityDTO.getAttendanceDayEntities() ){
+                    if ( attendanceDayEntityDTO.equals(attendanceDayEntity) ){
                         found = true;
                         break;
                     }
                 }
                 if(!found){
-                    mAttendanceDayRepository.delete(attendanceDay.getUniqueId());
+                    attendanceEmployeeDAO.delete(attendanceDayEntity.getUniqueId());
                 }
             }
 
-            for(AttendanceDay attendanceDayDTO : attendanceEmployeeDTO.getAttendanceDays()){
-                AttendanceDay attendanceDay = mAttendanceDayRepository.load(attendanceDayDTO.getUniqueId());
-                if(attendanceDay==null){
-                    attendanceDay = attendanceDayDTO;
+            for(AttendanceDayEntity attendanceDayEntityDTO : attendanceEmployeeEntityDTO.getAttendanceDayEntities()){
+                AttendanceDayEntity attendanceDayEntity = attendanceDayDAO.load(attendanceDayEntityDTO.getUniqueId());
+                if(attendanceDayEntity ==null){
+                    attendanceDayEntity = attendanceDayEntityDTO;
                 }else{
-                    attendanceDay.update(attendanceDayDTO);
+                    attendanceDayEntity.update(attendanceDayEntityDTO);
                 }
-                attendanceDay.setEmployee(attendanceEmployee);
-                mAttendanceDayRepository.save(attendanceDay);
+                attendanceDayEntity.setEmployee(attendanceEmployeeEntity);
+                attendanceDayDAO.save(attendanceDayEntity);
             }
 
         }

@@ -26,12 +26,7 @@ import javafx.util.Callback;
 public class AttendanceCell extends TableCell<AttendanceEmployeeVM,AttendanceDayVM>{
 
     public static Callback<TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceDayVM>, ObservableValue> getValueFactory( final int day ){
-         return new Callback<TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceDayVM>, ObservableValue>(  ) {
-             @Override
-             public ObservableValue call(TableColumn.CellDataFeatures<AttendanceEmployeeVM,AttendanceDayVM> param) {
-                 return param.getValue().data.get(day);
-             }
-         };
+         return param -> param.getValue().data.get(day);
     }
 
     public static class AttendanceCellFactory implements Callback<TableColumn, TableCell>{
@@ -53,12 +48,9 @@ public class AttendanceCell extends TableCell<AttendanceEmployeeVM,AttendanceDay
             TableCell cell = new AttendanceCell( data );
             cell.setOnMouseClicked( onClick );
 
-            cell.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                    if(newValue){
-                        onSelectCell.onSelectCell(cell);
-                    }
+            cell.focusedProperty().addListener( (observable, oldValue, newValue) -> {
+                if(newValue){
+                    onSelectCell.onSelectCell(cell);
                 }
             });
             return cell;
