@@ -7,10 +7,7 @@ import com.centrumhr.application.core.UI;
 import com.centrumhr.application.core.UseCaseThreadExecutor;
 import com.centrumhr.application.Message;
 import com.centrumhr.application.account.data.AccountData;
-import com.centrumhr.application.sync.CreateDataBaseUseCase;
-import com.centrumhr.application.sync.IDataBaseService;
-import com.centrumhr.application.sync.StartApplicationUseCase;
-import com.centrumhr.application.sync.SyncDataBaseUseCase;
+import com.centrumhr.application.sync.*;
 import rx.schedulers.JavaFxScheduler;
 
 
@@ -24,26 +21,28 @@ public class SplashPresenter extends Presenter<SplashPresenter.View>{
         void displayMainScreen();
     }
 
-    private IDataBaseService        dataBaseService;
+    private IORMLiteDataBaseService dataBaseService;
+    private IXMLDataBaseService xmlDataBaseService;
     private GetLoggedAccountUseCase getLoggedAccountUseCase;
     private CreateDataBaseUseCase   createDataBaseUseCase;
     private SyncDataBaseUseCase     syncDataBaseUseCase;
     private StartApplicationUseCase startApplicationUseCase;
 
     @Inject
-    public SplashPresenter(IDataBaseService dataBaseService, GetLoggedAccountUseCase getLoggedAccountUseCase, CreateDataBaseUseCase createDataBaseUseCase, SyncDataBaseUseCase syncDataBaseUseCase, StartApplicationUseCase startApplicationUseCase) {
+    public SplashPresenter(IXMLDataBaseService xmlDataBaseService, IORMLiteDataBaseService dataBaseService, GetLoggedAccountUseCase getLoggedAccountUseCase, CreateDataBaseUseCase createDataBaseUseCase, SyncDataBaseUseCase syncDataBaseUseCase, StartApplicationUseCase startApplicationUseCase) {
         super(JavaFxScheduler.getInstance(),UseCaseThreadExecutor.INSTANCE);
         this.dataBaseService = dataBaseService;
         this.getLoggedAccountUseCase = getLoggedAccountUseCase;
         this.createDataBaseUseCase = createDataBaseUseCase;
         this.syncDataBaseUseCase = syncDataBaseUseCase;
         this.startApplicationUseCase = startApplicationUseCase;
+        this.xmlDataBaseService = xmlDataBaseService;
     }
 
     public void checkIfAccountIsLogged(){
         view.showProgress(Message.LOADING);
         executeUseCase(getLoggedAccountUseCase, false, accountData -> {
-            if(dataBaseService.dataBaseExists(accountData)){
+            if(dataBaseService.dataBaseExists(accountData)&&xmlDataBaseService.dataBaseExists(accountData)){
                 startApplication();
             }else{
                 createDataBase( accountData );

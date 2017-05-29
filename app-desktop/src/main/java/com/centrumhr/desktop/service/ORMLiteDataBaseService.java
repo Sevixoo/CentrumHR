@@ -1,8 +1,8 @@
 package com.centrumhr.desktop.service;
 
 import com.centrumhr.application.account.data.AccountData;
-import com.centrumhr.application.sync.IDataBaseService;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.application.sync.IORMLiteDataBaseService;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.desktop.data.ORMLiteDatabase;
 
 import java.io.File;
@@ -10,9 +10,9 @@ import java.io.File;
 /**
  * Created by Seweryn on 18.09.2016.
  */
-public class DataBaseService implements IDataBaseService {
+public class ORMLiteDataBaseService implements IORMLiteDataBaseService {
 
-    private static String TAG = DataBaseService.class.getName();
+    private static String TAG = ORMLiteDataBaseService.class.getName();
     private static final int DB_VERSION = 4;
 
     private final String PATH_TO_DATABASE = "./data/";
@@ -35,7 +35,7 @@ public class DataBaseService implements IDataBaseService {
         boolean dbExists = dbFile.exists() && !dbFile.isDirectory();
         if(dbExists){
             ormLiteDatabase = new ORMLiteDatabase(dbFile);
-            System.out.println("[DataBaseService]"+TAG+":connectDatabase:"+dbFile.getPath());
+            System.out.println("[ORMLiteDataBaseService]"+TAG+":connectDatabase:"+dbFile.getPath());
         }
         return dbExists;
     }
@@ -46,7 +46,7 @@ public class DataBaseService implements IDataBaseService {
         File dbFile = getDatabaseFile(name);
         ormLiteDatabase = new ORMLiteDatabase(dbFile);
         ormLiteDatabase.onCreateDataBase();
-        System.out.println("[DataBaseService]"+TAG+":createDataBase:"+dbFile.getPath());
+        System.out.println("[ORMLiteDataBaseService]"+TAG+":createDataBase:"+dbFile.getPath());
         return ormLiteDatabase;
     }
 

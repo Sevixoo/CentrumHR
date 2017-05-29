@@ -19,8 +19,6 @@ public abstract class DayValidator {
         return errorMessage;
     }
 
-    public abstract boolean appliesFor(AttendanceEmployee attendanceEmployee);
-
-    public abstract boolean isValid(AttendanceDay day , AttendanceDay[] days , ICalendarService calendarService);
+    public abstract boolean isValid(AttendanceEmployee attendanceEmployee,AttendanceDay[] days, int dayNum);
 
 }

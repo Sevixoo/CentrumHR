@@ -1,5 +1,6 @@
-package com.centrumhr.data.core;
+package com.centrumhr.data.core.ormlite;
 
+import com.centrumhr.data.core.DatabaseException;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.stmt.QueryBuilder;

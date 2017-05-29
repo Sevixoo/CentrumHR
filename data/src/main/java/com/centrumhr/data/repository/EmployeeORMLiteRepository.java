@@ -1,8 +1,8 @@
 package com.centrumhr.data.repository;
 
-import com.centrumhr.data.core.DAO;
+import com.centrumhr.data.core.ormlite.DAO;
 import com.centrumhr.data.core.DatabaseException;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.model.employment.EmployeeEntity;
 import com.centrumhr.data.model.employment.IEmployeeRepository;
 
@@ -14,12 +14,12 @@ import java.util.UUID;
 /**
  * Created by Seweryn on 15.02.2017.
  */
-public class EmployeeRepository implements IEmployeeRepository {
+public class EmployeeORMLiteRepository implements IEmployeeRepository {
 
     private DAO<EmployeeEntity> employeeEntityDAO;
 
     @Inject
-    public EmployeeRepository(IORMLiteDataBase dataBase) {
+    public EmployeeORMLiteRepository(IORMLiteDataBase dataBase) {
         employeeEntityDAO = dataBase.provideDAO(EmployeeEntity.class);
     }
 

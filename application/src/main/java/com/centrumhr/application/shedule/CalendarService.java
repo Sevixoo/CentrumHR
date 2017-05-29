@@ -36,4 +36,11 @@ public class CalendarService implements ICalendarService {
         c.setTime(date);
         return c.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
     }
+
+    @Override
+    public int dayOfWeek(Date date) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        return c.get(Calendar.DAY_OF_WEEK)-1;
+    }
 }

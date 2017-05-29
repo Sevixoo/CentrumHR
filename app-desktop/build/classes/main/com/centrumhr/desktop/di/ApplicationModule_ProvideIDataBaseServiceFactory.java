@@ -1,11 +1,11 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.application.sync.IORMLiteDataBaseService;
 import dagger.internal.Factory;
 import javax.annotation.Generated;
 
 @Generated("dagger.internal.codegen.ComponentProcessor")
-public final class ApplicationModule_ProvideIDataBaseServiceFactory implements Factory<IDataBaseService> {
+public final class ApplicationModule_ProvideIDataBaseServiceFactory implements Factory<IORMLiteDataBaseService> {
   private final ApplicationModule module;
 
   public ApplicationModule_ProvideIDataBaseServiceFactory(ApplicationModule module) {  
@@ -14,15 +14,15 @@ public final class ApplicationModule_ProvideIDataBaseServiceFactory implements F
   }
 
   @Override
-  public IDataBaseService get() {  
-    IDataBaseService provided = module.provideIDataBaseService();
+  public IORMLiteDataBaseService get() {  
+    IORMLiteDataBaseService provided = module.provideIDataBaseService();
     if (provided == null) {
       throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
     }
     return provided;
   }
 
-  public static Factory<IDataBaseService> create(ApplicationModule module) {  
+  public static Factory<IORMLiteDataBaseService> create(ApplicationModule module) {  
     return new ApplicationModule_ProvideIDataBaseServiceFactory(module);
   }
 }

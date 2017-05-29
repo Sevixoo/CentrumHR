@@ -7,6 +7,7 @@ import com.centrumhr.application.core.UseCaseThreadExecutor;
 import com.centrumhr.application.employee.LoadEmployeesUseCase;
 import com.centrumhr.desktop.ui.employee.data.EmployeeVM;
 import com.centrumhr.dto.employment.EmployeeDTO;
+import rx.Scheduler;
 import rx.schedulers.JavaFxScheduler;
 
 import javax.inject.Inject;
@@ -23,8 +24,8 @@ public class EmployeeListPresenter extends Presenter<EmployeeListPresenter.View>
     private LoadEmployeesUseCase loadEmployeesUseCase;
 
     @Inject
-    public EmployeeListPresenter(LoadEmployeesUseCase loadEmployeesUseCase) {
-        super(JavaFxScheduler.getInstance(), UseCaseThreadExecutor.INSTANCE);
+    public EmployeeListPresenter(Scheduler scheduler, LoadEmployeesUseCase loadEmployeesUseCase) {
+        super(scheduler, UseCaseThreadExecutor.INSTANCE);
         this.loadEmployeesUseCase = loadEmployeesUseCase;
     }
 

@@ -1,6 +1,6 @@
 package com.centrumhr.data.importer;
 
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import dagger.internal.Factory;
 import javax.annotation.Generated;
 import javax.inject.Provider;

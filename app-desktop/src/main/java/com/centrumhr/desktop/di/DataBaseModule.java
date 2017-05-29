@@ -1,12 +1,12 @@
 package com.centrumhr.desktop.di;
 
-import com.centrumhr.application.sync.IDataBaseService;
-import com.centrumhr.data.core.IORMLiteDataBase;
-import com.centrumhr.data.importer.AttendancePlanImporter;
-import com.centrumhr.data.importer.EmployeeImporter;
+import com.centrumhr.application.sync.IORMLiteDataBaseService;
+import com.centrumhr.application.sync.IXMLDataBaseService;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.model.employment.IEmployeeRepository;
 import com.centrumhr.data.repository.AttendancePlanRepository;
-import com.centrumhr.data.repository.EmployeeRepository;
+import com.centrumhr.data.repository.AttendancePlanXMLRepository;
+import com.centrumhr.data.repository.EmployeeORMLiteRepository;
 import com.centrumhr.domain.attendance.AttendancePlanFactory;
 import com.centrumhr.domain.attendance.IAttendancePlanRepository;
 import com.centrumhr.domain.attendance.ICalendarService;
@@ -20,10 +20,28 @@ import dagger.Provides;
 @Module
 public class DataBaseModule {
 
-    IDataBaseService dataBaseService;
+    private IORMLiteDataBaseService     dataBaseService;
+    private IXMLDataBaseService         xmlDataBaseService;
 
-    public DataBaseModule(IDataBaseService dataBaseService){
+    public DataBaseModule(IORMLiteDataBaseService dataBaseService, IXMLDataBaseService xmlDataBaseService) {
         this.dataBaseService = dataBaseService;
+        this.xmlDataBaseService = xmlDataBaseService;
+    }
+
+    /*@Provides
+    public IAttendancePlanRepository providesAttendancePlanRepository(AttendancePlanFactory attendancePlanFactory){
+        return new AttendancePlanRepository(
+                dataBaseService.provideDataBase(),
+                attendancePlanFactory
+        );
+    }*/
+
+    @Provides
+    public IAttendancePlanRepository providesAttendancePlanRepository(AttendancePlanFactory attendancePlanFactory) {
+        return new AttendancePlanXMLRepository(
+                xmlDataBaseService.provideDataBase(),
+                attendancePlanFactory
+        );
     }
 
     @Provides
@@ -32,13 +50,8 @@ public class DataBaseModule {
     }
 
     @Provides
-    public IAttendancePlanRepository providesAttendancePlanRepository(IORMLiteDataBase dataBase, AttendancePlanFactory attendancePlanFactory){
-        return new AttendancePlanRepository(dataBase,attendancePlanFactory);
-    }
-
-    @Provides
     public IEmployeeRepository providesEmployeeRepository(IORMLiteDataBase dataBase){
-        return new EmployeeRepository(dataBase);
+        return new EmployeeORMLiteRepository(dataBase);
     }
 
     @Provides

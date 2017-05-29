@@ -1,6 +1,6 @@
-package com.centrumhr.data.core;
+package com.centrumhr.data.core.ormlite;
 
-import com.j256.ormlite.dao.Dao;
+import com.centrumhr.data.core.DatabaseException;
 
 /**
  * Created by Seweryn on 02.10.2016.

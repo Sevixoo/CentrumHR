@@ -35,8 +35,8 @@ public class AttendanceEmployee {
         return new AttendanceEmployeeDTO( uniqueId, name, code, employeeUniqueId );
     }
 
-    public boolean isPregnant() {
-        return false;//TODO...
+    public UUID getEmployeeUniqueId() {
+        return employeeUniqueId;
     }
 
     void clearErrors() {

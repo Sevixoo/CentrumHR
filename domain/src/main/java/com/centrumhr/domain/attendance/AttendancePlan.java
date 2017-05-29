@@ -45,23 +45,23 @@ public class AttendancePlan {
         this.employeeValidators = employeeValidators;
     }
 
-    public AttendanceDayDTO scheduleDay(UUID attendanceEmployeeId , int day , AttendanceType attendanceType , Hour hourFrom , Hour hourTo , ICalendarService calendarService )throws DomainException{
+    public AttendanceDayDTO scheduleDay(UUID attendanceEmployeeId , int day , AttendanceType attendanceType , Hour hourFrom , Hour hourTo )throws DomainException{
         if(state==PlanState.CLOSED)throw new DomainException("Plan is closed");
         AttendanceDay attendanceDay = findDay(attendanceEmployeeId,day);
         attendanceDay.schedule( attendanceType , hourFrom , hourTo );
-        validateDaysState(calendarService);
+        validateDaysState();
         validateEmployeesState();
         return attendanceDay.convert();
     }
 
-    public void commit(ICalendarService calendarService)throws DomainException{
-        if(validateDaysState(calendarService) | validateEmployeesState()){
+    public void commit()throws DomainException{
+        if(validateDaysState() | validateEmployeesState()){
             throw new DomainException("Plan has errors");
         }
         state = PlanState.CLOSED;
     }
 
-    public boolean validateDaysState(ICalendarService calendarService){
+    public boolean validateDaysState(){
         boolean hasErrors = false;
         for( int i = 0 ; i < attendanceEmployees.length ; i++ ){
             AttendanceEmployee employee = attendanceEmployees[i];
@@ -69,12 +69,10 @@ public class AttendancePlan {
                 attendanceDay.clearErrors();
             }
             for (DayValidator validator: dayValidators ) {
-                if( validator.appliesFor(employee)){
-                    for( AttendanceDay attendanceDay : days[i] ){
-                        if(!validator.isValid(attendanceDay,days[i],calendarService)){
-                            attendanceDay.addError(validator.getErrorMessage());
-                            hasErrors = true;
-                        }
+                for(int dayNum = 0 ; dayNum < days[i].length ; dayNum++){
+                    if(!validator.isValid(employee,days[i],dayNum)){
+                        days[i][dayNum].addError(validator.getErrorMessage());
+                        hasErrors = true;
                     }
                 }
             }

@@ -14,4 +14,6 @@ public interface ICalendarService {
     Date dateOfDay(Date month, int i);
 
     boolean isSunday(Date date);
+
+    int dayOfWeek(Date date);
 }

@@ -1,7 +1,7 @@
 package com.centrumhr.application.workFunction;
 
 import com.centrumhr.application.core.UseCase;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.mapper.employment.WorkFunctionMapper;
 import com.centrumhr.data.model.employment.WorkFunctionEntity;
 import com.centrumhr.domain.common.DomainException;

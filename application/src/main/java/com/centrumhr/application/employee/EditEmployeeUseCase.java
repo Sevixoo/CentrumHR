@@ -2,7 +2,6 @@ package com.centrumhr.application.employee;
 
 import com.centrumhr.application.core.UseCase;
 import com.centrumhr.application.employee.data.EmployeeArgument;
-import com.centrumhr.data.core.IORMLiteDataBase;
 import com.centrumhr.data.importer.EmployeeImporter;
 import com.centrumhr.data.mapper.employment.EmployeeMapper;
 import com.centrumhr.data.model.employment.*;

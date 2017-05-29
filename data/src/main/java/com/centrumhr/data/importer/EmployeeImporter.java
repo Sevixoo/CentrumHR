@@ -1,7 +1,7 @@
 package com.centrumhr.data.importer;
 
-import com.centrumhr.data.core.DAO;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.DAO;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.core.DatabaseException;
 import com.centrumhr.data.model.employment.*;
 

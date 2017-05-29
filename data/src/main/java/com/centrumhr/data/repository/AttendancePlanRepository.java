@@ -1,8 +1,8 @@
 package com.centrumhr.data.repository;
 
-import com.centrumhr.data.core.DAO;
+import com.centrumhr.data.core.ormlite.DAO;
 import com.centrumhr.data.core.DatabaseException;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.importer.AttendancePlanImporter;
 import com.centrumhr.data.mapper.attendance.AttendancePlanMapper;
 import com.centrumhr.data.model.attendance.AttendancePlanEntity;
@@ -12,7 +12,6 @@ import com.centrumhr.domain.attendance.IAttendancePlanRepository;
 import com.centrumhr.dto.attendance.AttendancePlanDTO;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;

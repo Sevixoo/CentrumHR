@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jaxp-api-1.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.xml/jaxp-api/1.4/ea18f84c500bfe0e8662c34fe6497cc9c950d29c/jaxp-api-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

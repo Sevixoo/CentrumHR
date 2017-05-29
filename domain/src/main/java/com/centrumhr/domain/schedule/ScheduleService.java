@@ -51,7 +51,7 @@ public class ScheduleService {
 
     public AttendanceDayDTO scheduleDay(AttendancePlan attendancePlan, UUID attendanceEmployeeId , int day , AttendanceType attendanceType , Hour hourFrom , Hour hourTo)throws DomainException{
         if(attendancePlan == null)throw new DomainException("Plan not selected");
-        return attendancePlan.scheduleDay( attendanceEmployeeId , day , attendanceType , hourFrom , hourTo , calendarService );
+        return attendancePlan.scheduleDay( attendanceEmployeeId , day , attendanceType , hourFrom , hourTo );
     }
 
     public AttendanceEmployeeSummary employeeSummary( AttendancePlan attendancePlan,UUID attendanceEmployeeId )throws DomainException{

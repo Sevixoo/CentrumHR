@@ -66,7 +66,7 @@ public class AttendanceDay {
         return date;
     }
 
-    void schedule(AttendanceType attendanceType, Hour hourFrom, Hour hourTo)throws DomainException {
+    void schedule(AttendanceType attendanceType, Hour hourFrom, Hour hourTo) {
         this.attendanceType = attendanceType;
         this.planStartHour = hourFrom;
         this.planEndHour = hourTo;
@@ -78,6 +78,10 @@ public class AttendanceDay {
 
     void clearErrors() {
         errors.clear();
+    }
+
+    public List<String> getErrors(){
+        return errors;
     }
 
     public int planedDuration() {

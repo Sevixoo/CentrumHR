@@ -1,12 +1,12 @@
 package com.centrumhr.application.sync;
 
 import com.centrumhr.application.account.data.AccountData;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 
 /**
  * Created by Seweryn on 18.09.2016.
  */
-public interface IDataBaseService {
+public interface IORMLiteDataBaseService {
 
     String getDatabaseName( AccountData accountData );
 

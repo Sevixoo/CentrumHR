@@ -1,7 +1,7 @@
 package com.centrumhr.application.department;
 
 import com.centrumhr.application.core.UseCase;
-import com.centrumhr.data.core.IORMLiteDataBase;
+import com.centrumhr.data.core.ormlite.IORMLiteDataBase;
 import com.centrumhr.data.model.employment.DepartmentEntity;
 import com.centrumhr.domain.common.DomainException;
 

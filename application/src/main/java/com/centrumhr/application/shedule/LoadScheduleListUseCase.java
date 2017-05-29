@@ -1,15 +1,12 @@
 package com.centrumhr.application.shedule;
 
 import com.centrumhr.application.core.UseCase;
-import com.centrumhr.data.core.IORMLiteDataBase;
-import com.centrumhr.data.mapper.attendance.AttendancePlanMapper;
 import com.centrumhr.domain.attendance.AttendancePlan;
 import com.centrumhr.domain.attendance.IAttendancePlanRepository;
 import com.centrumhr.domain.common.DomainException;
 import com.centrumhr.dto.attendance.AttendancePlanDTO;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

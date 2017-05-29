@@ -54,7 +54,8 @@ public class CentrumHRApplication extends Application {
         } else {
             mLoggedAccountComponent = mApplicationComponent
                     .getLoggedAccountComponent(new DataBaseModule(
-                            mApplicationComponent.getDataBaseService()
+                            mApplicationComponent.getDataBaseService(),
+                            mApplicationComponent.getXMLDataBaseService()
                     ), new AccountModule());
         }
     }

@@ -1,6 +1,7 @@
 package com.centrumhr.desktop.di;
  
-import com.centrumhr.application.sync.IDataBaseService;
+import com.centrumhr.application.sync.IORMLiteDataBaseService;
+import com.centrumhr.application.sync.IXMLDataBaseService;
 import com.centrumhr.desktop.ui.start.SplashPresenter;
 import com.centrumhr.desktop.ui.start.SplashController;
 import dagger.Component;
@@ -17,7 +18,10 @@ public interface AppComponent {
     void inject(SplashController controller);
 
     SplashPresenter getSplashPresenter();
-    IDataBaseService getDataBaseService();
+
+    IORMLiteDataBaseService getDataBaseService();
+
+    IXMLDataBaseService getXMLDataBaseService();
 
     LoggedAccountComponent getLoggedAccountComponent( DataBaseModule dataBaseModule , AccountModule accountModule );
 
